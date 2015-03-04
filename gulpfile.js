@@ -22,8 +22,9 @@ gulp.task('serve', ['less_compiler'], function() {
     server: {
       baseDir: ['.tmp', 'public'],
       routes: {
-        'node_modules': 'node_modules',
-        'bower_components': 'bower_components'
+        '/node_modules': 'node_modules',
+        '/bower_components': 'bower_components',
+        '/images': 'images'
       }
     }
   });
