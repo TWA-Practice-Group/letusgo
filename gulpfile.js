@@ -21,8 +21,9 @@ gulp.task('serve', ['less_compiler'], function() {
     notify: false,
     port: 9000,
     server: {
-      baseDir: [ 'public'],
+      baseDir: [ 'public', '.tmp'],
       routes: {
+        '/images': 'images',
         '/styles': 'styles'
       }
     }
