@@ -1,6 +1,7 @@
 'use strict';
 var gulp = require('gulp');
 var less = require('gulp-less');
+var jade = require('gulp-jade');
 var del = require('del');
 
 var browserSync = require('browser-sync');
@@ -17,7 +18,7 @@ gulp.task('less_compiler', function () {
 gulp.task('jade_compiler', function(){
 
     return gulp.src('public/**/*.jade')
-        .pipe($.jade())
+        .pipe(jade())
         .pipe(gulp.dest('.tmp/'))
 });
 
