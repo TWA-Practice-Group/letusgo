@@ -29,7 +29,7 @@ gulp.task('serve', ['less_compiler', 'jade_compiler'], function() {
     notify: false,
     port: 9000,
     server: {
-      baseDir: ['.tmp', 'public'],
+      baseDir: ['.tmp', 'views', 'public'],
       routes: {
         '/node_modules': 'node_modules',
         '/bower_components': 'bower_components',
