@@ -26,6 +26,8 @@ if (app.get('env') === 'development') {
     //app.use(express.static(path.join(__dirname, '../client/app')));
 
     app.use(express.static(path.join(__dirname, './public')));
+    app.use(express.static(path.join(__dirname, './bower_components')));
+    app.use(express.static(path.join(__dirname, './.tmp')));
 
     // development error handler
     // will print stacktrace
