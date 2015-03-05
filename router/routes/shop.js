@@ -1,10 +1,14 @@
 var express = require('express');
 var router = express.Router();
-var helloWorld = require('./modules/helloWorld.js');
+var mongoose = require('mongoose');
+var connect = require('./modules/goodsSchema.js');
 
-router.get('/', function(req, res) {
-    res.send(helloWorld());
-
+router.get('/', function(req, res, next) {
+    connect.find(function (err, goods) {
+        if (err) return next(err);
+        console.log(goods);
+        res.json(goods);
+    });
 });
 
 module.exports = router;
