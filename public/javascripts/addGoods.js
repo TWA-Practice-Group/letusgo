@@ -10,7 +10,7 @@ require.config({
 
 require(['jquery', 'semantic'], function($, semantic) {
 
-    $(document).ready(function(){
+    $(document).ready(function () {
 
         $('#emptyError').hide();
 
@@ -19,27 +19,26 @@ require(['jquery', 'semantic'], function($, semantic) {
             $(this).attr('href', '/shopManagement');
         });
 
-        $('a#save').on('click', function(){
+        $('a#save').on('click', function () {
             verifyInfo();
         });
 
     });
 });
+    function verifyInfo() {
+        var name = $('input#goodName').val();
+        var unit = $('input#goodUnit').val();
+        var price = $('input#goodPrice').val();
 
-        function verifyInfo(){
-            var name = $('input#goodName').val();
-            var unit = $('input#goodUnit').val();
-            var price = $('input#goodPrice').val();
+        var intergrated = name && unit && price;
 
-            var intergrated = name && unit && price;
+        if (!intergrated) {
+            $('#emptyError').show();
+        } else {
 
-            if (!intergrated) {
-                $('#emptyError').show();
-            } else {
-
-                $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
-                    $('#emptyError').hide();
-                    $('a#save').attr('href', '../../views/shopManagement.html');
-                });
-            }
+            $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
+                $('#emptyError').hide();
+                $('a#save').attr('href', 'shopManagement');
+            });
         }
+    }
