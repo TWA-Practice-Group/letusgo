@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 
 var app = express();
+var mongoose = require('mongoose');
 
 // uncomment after placing your favicon in /public
 
@@ -15,6 +16,14 @@ app.use(bodyParser.urlencoded({
 }));
 //app.use(cookieParser());
 
+//connect to database
+mongoose.connect('mongodb://localhost/letusgo', function(err) {
+    if(err) {
+        console.log('connection error', err);
+    } else {
+        console.log('connection successful');
+    }
+});
 
 // development settings
 if (app.get('env') === 'development') {
