@@ -5,8 +5,6 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 
-// uncomment after placing your favicon in /public
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
@@ -14,7 +12,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: false
 }));
-//app.use(cookieParser());
 
 //connect to database
 mongoose.connect('mongodb://localhost/letusgo', function(err) {
@@ -27,12 +24,6 @@ mongoose.connect('mongodb://localhost/letusgo', function(err) {
 
 // development settings
 if (app.get('env') === 'development') {
-
-    // This will change in production since we'll be using the dist folder
-    //app.use(express.static(path.join(__dirname, '../client')));
-    //// This covers serving up the index page
-    //app.use(express.static(path.join(__dirname, '../client/.tmp')));
-    //app.use(express.static(path.join(__dirname, '../client/app')));
 
     app.use(express.static(path.join(__dirname, './public')));
     app.use(express.static(path.join(__dirname, './bower_components')));
