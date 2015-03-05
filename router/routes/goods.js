@@ -12,6 +12,10 @@ router.get('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
+    var good = new Good(null, req.body.name, req.body.unit, req.body.price);
+
+    console.log(req.body.name, req.body.unit, req.body.price);
+    console.log(JSON.stringify(req.param('name')));
 
     goodModel.create(req.body);
     res.send('add successful');
