@@ -26,17 +26,17 @@ html(lang="en")
                             thead
                                 tr
                                     th 名称
-                                    th 单价
                                     th 单位
+                                    th 单价
                                     th
                                     th
                             tbody#goodLists
                                 - each good in goods
-                                tr
-                                    td #{good.name}
-                                    td #{good.price}
-                                    td #{good.unit}
-                                    td
-                                        div(class="ui inverted purple button") 修改
-                                    td
-                                        div(class="ui inverted blue button") 删除
+                                    tr
+                                        td #{good.name}
+                                        td #{good.unit}
+                                        td #{good.price}元
+                                        td
+                                            div(class="ui inverted purple button") 修改
+                                        td
+                                            div(class="ui inverted blue button") 删除
