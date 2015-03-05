@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 requirejs.config({
   paths: {
     'jquery': 'jquery'
