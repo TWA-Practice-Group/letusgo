@@ -37,5 +37,3 @@ require(['jquery', 'semantic'], function($, semantic) {
                 $('#emptyError').hide();
                 $('a#save').attr('href', '/shopManagement');
             });
-        }
-    }
