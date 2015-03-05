@@ -23,6 +23,7 @@ require(['jquery', 'semantic'], function($, semantic) {
     });
 });
     function verifyInfo() {
+
         var name = $('input#goodName').val();
         var unit = $('input#goodUnit').val();
         var price = $('input#goodPrice').val();
@@ -35,7 +36,9 @@ require(['jquery', 'semantic'], function($, semantic) {
 
             $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
                 $('#emptyError').hide();
-                $('a#save').attr('href', 'shopManagement');
+                $('a#save').attr('href', '/shopManagement');
             });
         }
     }
+
+
