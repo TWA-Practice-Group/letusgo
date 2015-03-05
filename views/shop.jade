@@ -1,0 +1,37 @@
+doctype html
+html
+    head
+        -var pageName= "商品列表"
+        title= pageName
+        meta(charset="utf-8")
+        link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
+
+        script(src="semantic-ui/dist/semantic.js")
+    body
+        include ./viewModules/navBar.jade
+        .ui.grid.centered
+            .thirteen.wide.column
+                h1 商品列表
+                table.ui.large.table
+                    thead
+                        tr
+                        th.four.wide 名称
+                        th.three.wide 价格
+                        th.three.wide 单位
+                        th.three.wide 操作
+                    tbody
+                        tr
+                        td 苹果
+                        td 10.0
+                        td 千克
+                        td 购买s
+                        tr
+                        td 苹果
+                        td 10.0
+                        td 千克
+                        td 购买
+                        tr
+                        td 苹果
+                        td 10.0
+                        td 千克
+                        td 购买
