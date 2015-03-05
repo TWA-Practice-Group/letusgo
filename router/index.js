@@ -6,4 +6,5 @@ module.exports = function(app) {
     app.use('/addGoods', require('./routes/addGoods'));
 
     app.use('/api/goods', require('./routes/goods'));
+    app.use('/api/cart', require('./routes/cart'));
 };

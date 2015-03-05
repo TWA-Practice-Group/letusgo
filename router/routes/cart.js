@@ -1,19 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-var goodModel = require('./modules/goodsSchema.js');
+var cartModel = require('./modules/cartSchema.js');
 
 router.get('/', function(req, res) {
 
-    goodModel.find(function(err, goods){
+    cartModel.find(function(err, cart){
+
         if (err) return next(err);
-        res.send(goods);
+        res.send(cart);
     });
 });
 
 router.post('/', function(req, res){
 
-    goodModel.create(req.body);
+    cartModel.create(req.body);
     res.send('add successful');
 });
 
