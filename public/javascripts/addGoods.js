@@ -6,15 +6,13 @@ require.config({
     }
 });
 
-require(['jquery', 'semantic'], function(ui, $) {
+require(['jquery', 'semantic'], function($, ui ) {
 
     $(document).ready(function () {
 
         $('#emptyError').hide();
 
         $('a#cancel').on('click', function(){
-            $(this).attr('href', 'shopManagement');
-        $('a#cancel').on('click', function () {
             $(this).attr('href', 'shopManagement');
         });
 
