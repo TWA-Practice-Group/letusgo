@@ -11,6 +11,30 @@ html(lang="en")
         link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
         link(rel="stylesheet" type="text/css" href="styles/main.css")
     body
-        div.container
-            div.ui.inverted.masthead.segment
-                include ./viewModules/navBar.jade
+        div(class="row")
+            .sixteen.wide.column
+                .ui.inverted.teal.menu
+                    .left.menu
+                        a.ui.item LetUsGo
+                        a#homeLink.ui.link.item 主页
+                            i.home.icon
+                        a.ui.link.item 商城
+                        a.ui.link.item.active 商城管理
+                    .right.menu
+                        a.ui.link.item 购物车
+                            i.cart.in.icon
+                .ui.form.segment
+                    .field
+                        label 商品名称
+                        input(id="goodName", placeholder='商品名称', type='text', name="name")
+                    .field
+                        label 商品单位
+                        input(id="goodUnit", placeholder='商品单位', type='text', name="unit")
+                    .field
+                        label 商品单价
+                        input(id="goodPrice", placeholder='商品单价', type='text', name="price")
+
+
+
+
+
