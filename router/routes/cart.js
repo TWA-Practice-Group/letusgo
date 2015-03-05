@@ -5,10 +5,10 @@ var cartModel = require('./modules/cartSchema.js');
 
 router.get('/', function(req, res) {
 
-    cartModel.find(function(err, goods){
+    cartModel.find(function(err, cart){
 
         if (err) return next(err);
-        res.send(JSON.parse(goods));
+        res.send(cart);
     });
 });
 
