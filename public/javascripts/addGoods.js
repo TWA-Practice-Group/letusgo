@@ -1,3 +1,5 @@
+'use strict';
+
 require.config({
     baseUrl: './',
     paths:{
@@ -7,13 +9,14 @@ require.config({
 });
 
 require(['jquery', 'semantic'], function($, semantic) {
-    
+
     $(document).ready(function () {
 
         $('#emptyError').hide();
 
-        $('a#cancel').on('click', function(){
-            $(this).attr('href', 'shopManagement');
+        $('a#cancel').on('click', function () {
+
+            $(this).attr('href', '/shopManagement');
         });
 
         $('a#save').on('click', function () {
