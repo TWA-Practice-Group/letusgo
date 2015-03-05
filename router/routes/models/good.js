@@ -1,6 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
+var connect = require('../modules/goodsSchema.js');
 
 var Good = (function(){
 
@@ -11,8 +12,8 @@ var Good = (function(){
         this.price = price;
     }
 
-    Good.prototype.isDead = function() {
-        return this.hp <= 0;
+    Good.prototype.deleteById = function(id) {
+
     };
 
     return Good;
