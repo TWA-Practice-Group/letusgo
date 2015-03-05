@@ -22,7 +22,7 @@ html(lang="en")
                     div(class="right floated column")
                         div(class="ui orange button") 增加商品
                 div(class="ten wide centered column")
-                        table(class="ui table")
+                        table(class="ui large table")
                             thead
                                 tr
                                     th 名称
@@ -31,29 +31,12 @@ html(lang="en")
                                     th
                                     th
                             tbody#goodLists
+                                - each good in goods
                                 tr
-                                    td 水果
-                                    td 3.50
-                                    td 斤
+                                    td #{good.name}
+                                    td #{good.price}
+                                    td #{good.unit}
                                     td
                                         div(class="ui inverted purple button") 修改
                                     td
                                         div(class="ui inverted blue button") 删除
-                                tr
-                                    td 山竹
-                                    td 9.00
-                                    td 斤
-                                    td
-                                        div(class="ui inverted purple button") 修改
-                                    td
-                                        div(class="ui inverted blue button") 删除
-                                tr
-                                    td 西瓜
-                                    td 2.00
-                                    td 斤
-                                    td
-                                        div(class="ui inverted purple button") 修改
-                                    td
-                                        div(class="ui inverted blue button") 删除
-
-
