@@ -12,17 +12,13 @@ require(['semantic', 'jquery'], function( semantic, $ ) {
 
         $('.deleteItem').on('click', function () {
             console.log(this.id);
-            //$.ajax({
-            //    url: '/api/goods/' + this.id,
-            //    type: 'DELETE',
-            //    success: function(result) {
-            //        // Do something with the result
-            //    }
-            //});
-
-            $.delete('/api/goods' + this.id, function () {
-
-            })
+            $.ajax({
+                url: '/api/goods/' + this.id,
+                type: 'DELETE',
+                success: function(result) {
+                    // Do something with the result
+                }
+            });
         });
     });
 });
