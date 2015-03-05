@@ -10,7 +10,7 @@ require.config({
 
 require(['jquery', 'semantic'], function($, semantic) {
 
-    $(document).ready(function () {
+    $(document).ready(function(){
 
         $('#emptyError').hide();
 
@@ -19,14 +19,14 @@ require(['jquery', 'semantic'], function($, semantic) {
             $(this).attr('href', '/shopManagement');
         });
 
-        $('a#save').on('click', function () {
+        $('a#save').on('click', function(){
             verifyInfo();
         });
 
     });
 });
 
-        function verifyInfo() {
+        function verifyInfo(){
             var name = $('input#goodName').val();
             var unit = $('input#goodUnit').val();
             var price = $('input#goodPrice').val();
@@ -43,4 +43,3 @@ require(['jquery', 'semantic'], function($, semantic) {
                 });
             }
         }
-
