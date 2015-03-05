@@ -19,14 +19,14 @@ html
                     thead
                         tr
                         th.four.wide 名称
-                        th.three.wide 价格
                         th.three.wide 单位
+                        th.three.wide 价格
                         th.three.wide 操作
-                    tbody
+                    tbody.center
                         -each good in goods
                             tr
                                 td #{good.name}
-                                td #{good.price}
                                 td #{good.unit}
-                                td 购买s
+                                td #{good.price}元
+                                td 购买
 
