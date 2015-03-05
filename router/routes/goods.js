@@ -18,5 +18,10 @@ router.post('/', function(req, res){
     res.send('add successful');
 });
 
+router.delete('/:id', function(req, res){
+    var id = req.params.id;
+    console.log(id);
+});
+
 module.exports = router;
 
