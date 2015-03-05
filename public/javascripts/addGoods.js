@@ -32,8 +32,6 @@ require(['jquery', 'semantic'], function ($, semantic) {
         var unit = $('input#goodUnit').val();
         var price = $('input#goodPrice').val();
 
-        var intergrated = name && unit && price;
-
         if (!intergrated) {
             $('#emptyError').show();
         } else {
