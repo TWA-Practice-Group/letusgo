@@ -4,7 +4,8 @@ var _ = require('lodash');
 
 var Good = (function(){
 
-    function Good(name, unit, price){
+    function Good(id, name, unit, price){
+        this.id = id;
         this.name = name;
         this.unit = unit;
         this.price = price;
