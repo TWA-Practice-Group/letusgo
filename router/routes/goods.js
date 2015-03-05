@@ -21,7 +21,7 @@ router.delete('/:id', function(req, res) {
 
     var id = req.params.id;
     goodModel.remove({_id: id}, function () {
-        
+
         res.send('delete success!');
     });
 });
