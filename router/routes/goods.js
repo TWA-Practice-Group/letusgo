@@ -11,7 +11,7 @@ router.get('/', function(req, res) {
     });
 });
 
-router.post('/', function(req, res) {
+router.post('/', function(req, res){
 
     goodModel.create(req.body);
     res.send('add successful');
