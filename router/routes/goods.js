@@ -6,9 +6,8 @@ var goodModel = require('./modules/goodsSchema.js');
 router.get('/', function(req, res) {
 
     goodModel.find(function(err, goods){
-
         if (err) return next(err);
-        res.send(JSON.parse(goods));
+        res.send(goods);
     });
 });
 
