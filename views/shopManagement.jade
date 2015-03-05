@@ -13,68 +13,47 @@ html(lang="en")
         header
             h5#logo  欢迎光临来此购网上购物商城
         div.container
-<<<<<<< HEAD
             div.ui.masthead.inverted.segment
                 include ./viewModules/navBar.jade
-                div.row
-                    div.ten.column
-                        p.
-                            LetUsGo商品列表
-                div.center LetUsGo商品列表
-                div.ui.blue.segment
 
-                    <table class="ui compact table">
-                    <thead>
-                    <tr>
-                    <th>Name</th>
-                    <th>Status</th>
-                    <th>Notes</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                    <td>John</td>
-                    <td>Approved</td>
-                    <td>None</td>
-                    </tr>
-                    <tr>
-                    <td>Jamie</td>
-                    <td>Approved</td>
-                    <td>Requires call</td>
-                    </tr>
-                    <tr>
-                    <td>John</td>
-                    <td>Approved</td>
-                    <td>None</td>
-                    </tr>
-                    <tr>
-                    <td>Jamie</td>
-                    <td>Approved</td>
-                    <td>Requires call</td>
-                    </tr>
-                    <tr>
-                    <td>John</td>
-                    <td>Approved</td>
-                    <td>None</td>
-                    </tr>
-                    <tr>
-                    <td>Jamie</td>
-                    <td>Approved</td>
-                    <td>Requires call</td>
-                    </tr>
-                    <tr>
-                    <td>John</td>
-                    <td>Approved</td>
-                    <td>None</td>
-                    </tr>
-                    <tr>
-                    <td>Jamie</td>
-                    <td>Approved</td>
-                    <td>Requires call</td>
-                    </tr>
-                    </tbody>
-                    </table>
-=======
-            div.ui.inverted.masthead.segment
-                include ./viewModules/navBar.jade
->>>>>>> 5295e41db74b11fc9887a62546dd6d643e72ff2f
+            div(class="ui grid")
+                div(class="ten wide centered column")
+                    h1 LetUsGo商品管理列表
+                div(class="three column row")
+                    div(class="right floated column")
+                        div(class="ui orange button") 增加商品
+                div(class="ten wide centered column")
+                        table(class="ui table")
+                            thead
+                                tr
+                                    th 名称
+                                    th 单价
+                                    th 单位
+                                    th
+                                    th
+                            tbody#goodLists
+                                tr
+                                    td 水果
+                                    td 3.50
+                                    td 斤
+                                    td
+                                        div(class="ui inverted purple button") 修改
+                                    td
+                                        div(class="ui inverted blue button") 删除
+                                tr
+                                    td 山竹
+                                    td 9.00
+                                    td 斤
+                                    td
+                                        div(class="ui inverted purple button") 修改
+                                    td
+                                        div(class="ui inverted blue button") 删除
+                                tr
+                                    td 西瓜
+                                    td 2.00
+                                    td 斤
+                                    td
+                                        div(class="ui inverted purple button") 修改
+                                    td
+                                        div(class="ui inverted blue button") 删除
+
