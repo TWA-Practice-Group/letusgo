@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict';
 
 require.config({
@@ -15,7 +16,7 @@ require(['semantic', 'jquery'], function(semantic, $) {
         $('#emptyError').hide();
 
         $('a#cancel').on('click', function () {
-            $(this).attr('href', '../../views/shopManagement.html');
+            $(this).attr('href', 'shopManagement');
         });
 
         $('a#save').on('click', function () {
@@ -36,7 +37,7 @@ require(['semantic', 'jquery'], function(semantic, $) {
 
                 $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
                     $('#emptyError').hide();
-                    $('a#save').attr('href', '../../views/shopManagement.html');
+                    $('a#save').attr('href', 'shopManagement');
                 });
             }
         }
