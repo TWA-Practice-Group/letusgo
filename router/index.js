@@ -4,4 +4,6 @@ module.exports = function(app) {
     app.use('/', require('./routes/home'));
     app.use('/shopManagement', require('./routes/shopManagement'));
     app.use('/addGoods', require('./routes/addGoods'));
+
+    app.use('/api/goodslist', require('./routes/goodslist'));
 };
