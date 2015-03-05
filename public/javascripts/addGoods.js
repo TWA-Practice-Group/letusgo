@@ -6,6 +6,7 @@ require.cofig({
         'semantic': '../../../bower_components/semantic-ui/dist/semantic.js'
     }
 });
+
 require(['jquery', 'semantic'], function (jquery, semantic){
 
 });
