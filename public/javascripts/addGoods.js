@@ -9,8 +9,7 @@ require.config({
 });
 
 require(['jquery', 'semantic'], function($, semantic) {
-
-    $(document).ready(function () {
+    $(document).ready(function(){
 
         $('#emptyError').hide();
         $('#priceError').hide();
