@@ -7,7 +7,7 @@ require.config({
 });
 
 require(['jquery', 'semantic'], function($, semantic) {
-
+    
     $(document).ready(function () {
 
         $('#emptyError').hide();
@@ -40,5 +40,3 @@ require(['jquery', 'semantic'], function($, semantic) {
             });
         }
     }
-
-
