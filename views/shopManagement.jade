@@ -7,8 +7,7 @@ html(lang="en")
         meta(name="viewport" content="width=device-width")
         link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
         link(rel="stylesheet" type="text/css" href="styles/main.css")
-        script(src="jquery/dist/jquery.js")
-        script(src="semantic-ui/dist/semantic.js")
+        script(src="javascripts/require.js" data-main="javascripts/shopManagement")
     body#home
         header
             h5#logo  欢迎光临来此购网上购物商城
@@ -39,4 +38,4 @@ html(lang="en")
                                         td
                                             div(class="ui inverted purple button") 修改
                                         td
-                                            div(class="ui inverted blue button") 删除
+                                            div(id=#{good._id} class="ui inverted blue button deleteItem") 删除
