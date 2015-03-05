@@ -6,14 +6,14 @@ require.config({
     }
 });
 
-require(['jquery', 'semantic'], function(ui, $) {
+require(['jquery', 'semantic'], function($, ui ) {
 
     $(document).ready(function () {
 
         $('#emptyError').hide();
 
         $('a#cancel').on('click', function () {
-            $(this).attr('href', '../../views/shopManagement.html');
+            $(this).attr('href', '/shopManagement');
         });
 
         $('a#save').on('click', function () {
@@ -31,10 +31,9 @@ require(['jquery', 'semantic'], function(ui, $) {
             if (!intergrated) {
                 $('#emptyError').show();
             } else {
-
                 $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
                     $('#emptyError').hide();
-                    $('a#save').attr('href', '../../views/shopManagement.html');
+                    $('a#save').attr('href', '/shopManagement');
                 });
             }
         }
