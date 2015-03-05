@@ -7,5 +7,5 @@ module.exports = function(app) {
 
     app.use('/api/goods', require('./routes/goods'));
     app.use('/api/cartGoods', require('./routes/cartGoods'));
-    app.use('/cart', require('./routes/cartGoods'));
+    app.use('/cart', require('./routes/cart'));
 };
