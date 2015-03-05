@@ -11,10 +11,12 @@ html
         script(src="jquery/dist/jquery.js")
         script(src="semantic-ui/dist/semantic.js")
     body
-        include ./viewModules/navBar.jade
+
+        .ui.masthead
+            include ./viewModules/navBar.jade
         .ui.grid.centered
+            h1 商品列表
             .thirteen.wide.column
-                h1 商品列表
                 table.ui.large.table
                     thead
                         tr
