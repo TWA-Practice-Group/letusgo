@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var goodModel = require('./modules/goodsSchema.js');
+var Good = require('./model/goodModel');
 
 router.get('/', function(req, res) {
 
@@ -14,11 +15,7 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
 
     goodModel.create(req.body);
-
-    goodModel.find(function(err, goods){
-
         res.send(goods);
-    });
 });
 
 router.delete('/:id', function(req, res) {
