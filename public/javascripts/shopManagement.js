@@ -1,17 +1,17 @@
 'use strict';
-requirejs.config({
+require.config({
     baseUrl: './',
-    paths: {
+    paths:{
         'jquery': './jquery/dist/jquery',
-        'semantic-ui': './semantic-ui/dist/sementic'
+        'semantic': './semantic-ui/dist/semantic'
     }
 });
-
-require(['jquery', 'semantic-ui'], function( $ ) {
+require(['semantic', 'jquery'], function( semantic, $ ) {
 
     $(document).ready(function () {
 
-        $('#deleteItem').on('click', function () {
+        $('.deleteItem').on('click', function (event) {
+            console.log(event.target.id);
             $.ajax({
                 url: './api/goods',
                 type: 'delete',
