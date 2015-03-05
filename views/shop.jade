@@ -4,8 +4,11 @@ html
         -var pageName= "商品列表"
         title= pageName
         meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width")
+
         link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
 
+        script(src="jquery/dist/jquery.js")
         script(src="semantic-ui/dist/semantic.js")
     body
         include ./viewModules/navBar.jade
@@ -20,18 +23,10 @@ html
                         th.three.wide 单位
                         th.three.wide 操作
                     tbody
-                        tr
-                        td 苹果
-                        td 10.0
-                        td 千克
-                        td 购买s
-                        tr
-                        td 苹果
-                        td 10.0
-                        td 千克
-                        td 购买
-                        tr
-                        td 苹果
-                        td 10.0
-                        td 千克
-                        td 购买
+                        -each good in goods
+                            tr
+                                td #{good.name}
+                                td #{good.price}
+                                td #{good.unit}
+                                td 购买s
+
