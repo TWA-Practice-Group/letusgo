@@ -6,8 +6,7 @@ var connect = require('./modules/goodsSchema.js');
 router.get('/', function(req, res, next) {
     connect.find(function (err, goods) {
         if (err) return next(err);
-        console.log(goods);
-        res.json(goods);
+        res.render('shop',{goods:goods});
     });
 });
 
