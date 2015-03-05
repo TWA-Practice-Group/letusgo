@@ -12,16 +12,19 @@ router.get('/', function(req, res) {
     });
 });
 
-router.post('/', function(req, res){
+router.post('/', function(req, res) {
 
     goodModel.create(req.body);
     res.send('add successful');
 });
 
-router.delete('/:id', function(req, res){
+router.delete('/:id', function(req, res) {
+
     var id = req.params.id;
-    console.log(id);
+    goodModel.remove({_id: id}, function () {
+        
+        res.send('delete success!');
+    });
 });
 
 module.exports = router;
-
