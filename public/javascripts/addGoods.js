@@ -38,7 +38,7 @@ require(['jquery', 'semantic'], function($, semantic) {
 
             $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
                 $('#emptyError').hide();
-                $('a#save').attr('href', 'shopManagement');
+                $('a#save').attr('href', '/shopManagement');
             });
         }
     }
