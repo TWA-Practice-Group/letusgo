@@ -15,13 +15,8 @@ html(lang="en")
         div.container
             div.ui.masthead.inverted.segment
                 include ./viewModules/navBar.jade
-                div.row
-                    div.ten.column
-                        p.
-                            LetUsGo商品列表
-                div.center LetUsGo商品列表
-                div.ui.blue.segment
 
+<<<<<<< HEAD
                     <table class="ui compact table">
                     <thead>
                     <tr>
@@ -73,3 +68,46 @@ html(lang="en")
                     </tr>
                     </tbody>
                     </table>
+=======
+            div(class="ui grid")
+                div(class="ten wide centered column")
+                    h1 LetUsGo商品管理列表
+                div(class="three column row")
+                    div(class="right floated column")
+                        div(class="ui orange button") 增加商品
+                div(class="ten wide centered column")
+                        table(class="ui table")
+                            thead
+                                tr
+                                    th 名称
+                                    th 单价
+                                    th 单位
+                                    th
+                                    th
+                            tbody#goodLists
+                                tr
+                                    td 水果
+                                    td 3.50
+                                    td 斤
+                                    td
+                                        div(class="ui inverted purple button") 修改
+                                    td
+                                        div(class="ui inverted blue button") 删除
+                                tr
+                                    td 山竹
+                                    td 9.00
+                                    td 斤
+                                    td
+                                        div(class="ui inverted purple button") 修改
+                                    td
+                                        div(class="ui inverted blue button") 删除
+                                tr
+                                    td 西瓜
+                                    td 2.00
+                                    td 斤
+                                    td
+                                        div(class="ui inverted purple button") 修改
+                                    td
+                                        div(class="ui inverted blue button") 删除
+
+>>>>>>> complete shopManagement views
