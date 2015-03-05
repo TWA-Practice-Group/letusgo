@@ -38,4 +38,4 @@ require(['jquery'], function($, _){
             }
         }
     });
-});
+
