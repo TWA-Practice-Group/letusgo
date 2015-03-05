@@ -9,7 +9,8 @@ require.config({
 });
 
 require(['jquery', 'semantic'], function($, semantic) {
-    $(document).ready(function(){
+
+    $(document).ready(function () {
 
         $('#emptyError').hide();
 
@@ -24,6 +25,7 @@ require(['jquery', 'semantic'], function($, semantic) {
 
     });
 });
+
         function verifyInfo() {
             var name = $('input#goodName').val();
             var unit = $('input#goodUnit').val();
