@@ -43,5 +43,3 @@ require(['semantic', 'jquery'], function(semantic, $) {
     });
 });
 
-require(['jquery', 'semantic'], function (jquery, semantic) {
-});
