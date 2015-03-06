@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var connect = require('../modules/goodsSchema.js');
+var goodsSchema = require('../modules/goodsSchema.js');
 
 var Good = (function(){
 
@@ -12,8 +12,15 @@ var Good = (function(){
         this.price = price;
     }
 
-    Good.prototype.deleteById = function(id) {
 
+    function goodHasexisted(name){
+
+       
+    }
+
+    Good.prototype.postGood = function() {
+
+        goodHasexisted(this.name), this.unit, this.price);
     };
 
     return Good;
