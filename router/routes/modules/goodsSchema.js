@@ -8,4 +8,4 @@ var goodsSchema = new mongoose.Schema({
   price: Number
 });
 
-module.exports = mongzoose.model('goods', goodsSchema);
+module.exports = mongoose.model('goods', goodsSchema);
