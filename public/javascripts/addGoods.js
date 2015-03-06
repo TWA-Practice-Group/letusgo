@@ -23,48 +23,33 @@ require(['jquery', 'semantic'], function ($, semantic) {
                 verifyInfo();
             });
 
-            function verifyInfo() {
-                var name = $('input#goodName').val();
-                var unit = $('input#goodUnit').val();
-                var price = $('input#goodPrice').val();
+            var unit = $('input#goodUnit').val();
+            var price = $('input#goodPrice').val();
+            var name = $('input#goodName').val();
+
+            var isIntergrated = name && unit && price;
 
             if (!isIntergrated) {
                 $('#emptyError').show();
             } else {
 
-                priceIsNumber();
-            }
-        })
-    })
-
-            function isIntergrated(){
-
-                var unit = $('input#goodUnit').val();
-                var price = $('input#goodPrice').val();
-                var name = $('input#goodName').val();
-
-                return name && unit && price;
+                priceIsNumber(name, unit, price);
             }
 
-            function priceIsNumber(){
+            function priceIsNumber(name, unit, price){
 
                 var reg = /^\d+(\.\d+)?$/;
-                var price = $('input#goodPrice').val();
 
                 var  priceIsNumber = reg.exec(price);
 
                 if(!priceIsNumber){
                     $('#emptyError').show();
                 }else{
-                    saveNewGood();
+                    saveNewGood(name, unit, price);
                 }
             }
 
             function saveNewGood(){
-
-                var unit = $('input#goodUnit').val();
-                var price = $('input#goodPrice').val();
-                var name = $('input#goodName').val();
 
                 $.post('/api/goods', {name: name, unit: unit, price: price})
                     .success(function(){
@@ -75,7 +60,7 @@ require(['jquery', 'semantic'], function ($, semantic) {
             }
 
 
-        }
+        });
     });
 });
 
