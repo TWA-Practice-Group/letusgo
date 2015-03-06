@@ -1,44 +1,46 @@
 'use strict';
 
 var _ = require('lodash');
-var Good = (function(){
+var goodsSchema = require('../modules/goodsSchema');
 
-    function Good(id, name, unit, price){
-        this.id = id;
-        this.name = name;
-        this.unit = unit;
-        this.price = price;
-    }
+var Good = (function () {
 
-    function addNewGood(name, unit, price){
+  function Good(id, name, unit, price) {
+    this.id = id;
+    this.name = name;
+    this.unit = unit;
+    this.price = price;
+  }
 
-        goodsSchema.create({
-            name: name,
-            price: price,
-            unit: unit
-        });
-    }
+  function addNewGood(name, unit, price) {
 
-    function goodHasexisted(name, unit, price){
+    goodsSchema.create({
+      name: name,
+      price: price,
+      unit: unit
+    });
+  }
 
-        goodsSchema.find(function(err, goods){
-            if (err) return next(err);
+  function goodHasexisted(name, unit, price) {
 
-            var goodindex = _.findIndex(goods, function(eachGood) {
-                return eachGood.name == name;
-            });
+    goodsSchema.find(function (err, goods) {
+      if (err) return next(err);
 
-            if(goodindex === -1){
-                addNewGood(name, unit, price);
-            }
-        });
-    }
+      var goodindex = _.findIndex(goods, function (eachGood) {
+        return eachGood.name == name;
+      });
 
-    Good.prototype.postGood = function() {
-        goodHasexisted(this.name, this.unit, this.price);
-    };
+      if (goodindex === -1) {
+        addNewGood(name, unit, price);
+      }
+    });
+  }
 
-    return Good;
+  Good.prototype.postGood = function () {
+    goodHasexisted(this.name, this.unit, this.price);
+  };
+
+  return Good;
 })();
 
 module.exports = Good;
