@@ -15,11 +15,6 @@ require(['jquery', 'semantic'], function ($) {
         $('#emptyError').hide();
         $('#priceError').hide();
 
-        $('a#cancel').on('click', function () {
-
-            $(this).attr('href', '/shopManagement');
-        });
-
         $('a#save').on('click', verifyInfo);
 
         function verifyInfo(){
