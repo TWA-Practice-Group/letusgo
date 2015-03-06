@@ -39,9 +39,9 @@ require(['jquery', 'semantic'], function ($, semantic) {
                         $('a#save').attr('href', '/shopManagement');
                     });
                 }
-
             }
         })
     })
+
 });
 
