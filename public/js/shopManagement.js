@@ -13,13 +13,11 @@ require(['semantic', 'jquery'], function(semantic, $) {
 
         $('.deleteItem').on('click', function () {
 
-          var id = $(this).id;
-
+            var id = this.id;
             var $this = $(this);
-          console.log(id);
             $.ajax({
 
-                url: '/api/goods/' + $this.id,
+                url: '/api/goods/' + id,
                 type: 'DELETE',
                 success: function(data){
 
