@@ -21,7 +21,7 @@ require(['jquery', 'semantic'], function($, semantic) {
         $('a#save').on('click', function () {
             verifyInfo();
         });
-
+    });
 
 });
     function verifyInfo() {
@@ -37,19 +37,21 @@ require(['jquery', 'semantic'], function($, semantic) {
         } else {
 
             priceIsNumber(name, unit, price);
-        }
-    }
-
-    function priceIsNumber(name, unit, price){
-
-        var reg = /^\d+(\.\d+)?$/;
-
-        var  priceIsNumber = reg.exec(price);
-
+                $('#emptyError').hide();
+                priceIsNumber(name, unit, price);
+            }
         if(!priceIsNumber){
             $('#emptyError').show();
         }else{
             saveNewGood(name, unit, price);
+            if(!priceIsNumber){
+
+                $('#priceError').show();
+            }else{
+
+                $('#priceError').hide();
+                saveNewGood(name, unit, price);
+            }
         }
     }
 
@@ -61,6 +63,5 @@ require(['jquery', 'semantic'], function($, semantic) {
                 $('#emptyError').hide();
                 $('a#save').attr('href', '/shopManagement');
             });
-        });
     }
 
