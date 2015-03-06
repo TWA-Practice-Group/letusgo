@@ -8,20 +8,14 @@ require.config({
     }
 });
 
-require(['jquery', 'semantic'], function ($, semantic) {
+require(['jquery', 'semantic'], function ($) {
 
     $(document).ready(function () {
 
         $('#emptyError').hide();
         $('#priceError').hide();
 
-        $('a#cancel').on('click', function () {
-
-            $(this).attr('href', '/shopManagement');
-        });
-        $('a#save').on('click', function () {
-            verifyInfo();
-        });
+        $('a#save').on('click', verifyInfo);
 
         function verifyInfo(){
             var unit = $('input#goodUnit').val();
@@ -57,9 +51,10 @@ require(['jquery', 'semantic'], function ($, semantic) {
 
         function saveNewGood(name, unit, price){
 
-            $.post('/api/goods', {name: name, unit: unit, price: price});
-            $('a#save').attr('href', '/shopManagement');
-
+            $.post('/api/goods', {name: name, unit: unit, price: price})
+                .success(function(){
+                    $(location).attr('href','/shopManagement')
+                });
         }
 
     });
