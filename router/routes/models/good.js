@@ -15,7 +15,17 @@ var Good = (function(){
 
     function goodHasexisted(name){
 
-       
+        goodsSchema.find(function(err, goods){
+            if (err) return next(err);
+
+            var goodHasexisted = _.findIndex(goods, function(eachGood) {
+                return eachGood.name == name;
+            });
+
+            if(!goodHasexisted){
+                addNewGood();
+            }
+        });
     }
 
     Good.prototype.postGood = function() {
