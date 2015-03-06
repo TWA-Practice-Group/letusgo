@@ -1,7 +1,6 @@
 'use strict';
 
 var _ = require('lodash');
-
 var Good = (function(){
 
     function Good(id, name, unit, price){
@@ -10,7 +9,6 @@ var Good = (function(){
         this.unit = unit;
         this.price = price;
     }
-
 
     function addNewGood(name, unit, price){
 
