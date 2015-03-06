@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var goodModel = require('./modules/goodsSchema.js');
-var Good = require('./model/goodModel');
+var Good = require('./models/good');
 
 router.get('/', function(req, res) {
 
