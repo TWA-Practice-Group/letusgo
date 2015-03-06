@@ -13,6 +13,7 @@ require(['jquery', 'semantic'], function ($, semantic) {
     $(document).ready(function () {
 
         $('#emptyError').hide();
+        $('#priceError').hide();
 
         $('a#cancel').on('click', function () {
 
@@ -33,6 +34,7 @@ require(['jquery', 'semantic'], function ($, semantic) {
                 $('#emptyError').show();
             } else {
 
+                $('#emptyError').hide();
                 priceIsNumber(name, unit, price);
             }
         }
@@ -44,20 +46,20 @@ require(['jquery', 'semantic'], function ($, semantic) {
             var  priceIsNumber = reg.exec(price);
 
             if(!priceIsNumber){
-                $('#emptyError').show();
+
+                $('#priceError').show();
             }else{
+
+                $('#priceError').hide();
                 saveNewGood(name, unit, price);
             }
         }
 
         function saveNewGood(name, unit, price){
 
-            $.post('/api/goods', {name: name, unit: unit, price: price})
-                .success(function(){
+            $.post('/api/goods', {name: name, unit: unit, price: price});
+            $('a#save').attr('href', '/shopManagement');
 
-                    $('#emptyError').hide();
-                    $('a#save').attr('href', '/shopManagement');
-                });
         }
 
     });

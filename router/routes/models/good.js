@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var connect = require('../modules/goodsSchema.js');
+var goodsSchema = require('../modules/goodsSchema.js');
 
 var Good = (function(){
 
@@ -12,8 +12,32 @@ var Good = (function(){
         this.price = price;
     }
 
-    Good.prototype.deleteById = function(id) {
+    function addNewGood(name, unit, price){
 
+        goodsSchema.create({
+            name: name,
+            price: price,
+            unit: unit
+        });
+    }
+
+    function goodHasexisted(name, unit, price){
+
+        goodsSchema.find(function(err, goods){
+            if (err) return next(err);
+
+            var goodindex = _.findIndex(goods, function(eachGood) {
+                return eachGood.name == name;
+            });
+
+            if(goodindex === -1){
+                addNewGood(name, unit, price);
+            }
+        });
+    }
+
+    Good.prototype.postGood = function() {
+        goodHasexisted(this.name, this.unit, this.price);
     };
 
     return Good;

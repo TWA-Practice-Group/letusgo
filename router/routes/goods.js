@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 var goodModel = require('./modules/goodsSchema.js');
+var Good = require('./models/good.js');
 
 router.get('/', function(req, res) {
 
@@ -13,7 +14,9 @@ router.get('/', function(req, res) {
 
 router.post('/', function(req, res) {
 
-    goodModel.create(req.body);
+    var good = new Good(null, req.body.name, req.body.unit,req.body.price);
+    good.postGood();
+
     res.send('add successful');
 });
 
