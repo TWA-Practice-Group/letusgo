@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 require.config({
     baseUrl: './',
     paths: {
