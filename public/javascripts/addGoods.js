@@ -10,10 +10,6 @@ require.config({
 
 require(['jquery', 'semantic'], function($, semantic) {
 
-    $(document).ready(function () {
-
-        $('#emptyError').hide();
-
         $('a#cancel').on('click', function () {
 
             $(this).attr('href', '/shopManagement');
@@ -23,7 +19,6 @@ require(['jquery', 'semantic'], function($, semantic) {
             verifyInfo();
         });
 
-    });
 });
     function verifyInfo() {
         var name = $('input#goodName').val();
