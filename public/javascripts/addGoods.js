@@ -51,9 +51,10 @@ require(['jquery', 'semantic'], function ($) {
 
         function saveNewGood(name, unit, price){
 
-            $.post('/api/goods', {name: name, unit: unit, price: price});
-            $('a#save').attr('href', '/shopManagement');
-
+            $.post('/api/goods', {name: name, unit: unit, price: price})
+                .success(function(){
+                    $(location).attr('href','/shopManagement')
+                });
         }
 
     });
