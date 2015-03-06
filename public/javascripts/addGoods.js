@@ -22,21 +22,23 @@ require(['jquery', 'semantic'], function ($, semantic) {
 
     });
 });
+    function verifyInfo() {
 
-function verifyInfo(){
-    var name = $('input#goodName').val();
-    var unit = $('input#goodUnit').val();
-    var price = $('input#goodPrice').val();
+        var name = $('input#goodName').val();
+        var unit = $('input#goodUnit').val();
+        var price = $('input#goodPrice').val();
 
-    var intergrated = name && unit && price;
+        var intergrated = name && unit && price;
 
-    if (!intergrated) {
-        $('#emptyError').show();
-    } else {
+        if (!intergrated) {
+            $('#emptyError').show();
+        } else {
 
-        $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
-            $('#emptyError').hide();
-            $('a#save').attr('href', 'shopManagement');
-        });
+            $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
+                $('#emptyError').hide();
+                $('a#save').attr('href', '/shopManagement');
+            });
+        }
     }
-}
+
+
