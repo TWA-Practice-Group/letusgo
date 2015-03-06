@@ -10,7 +10,7 @@ require.config({
 
 require(['jquery', 'semantic'], function($, semantic) {
 
-    $(document).ready(function () {
+    $(document).ready(function(){
 
         $('a#cancel').on('click', function () {
 
