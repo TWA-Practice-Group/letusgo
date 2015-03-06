@@ -1,22 +1,36 @@
 var express = require('express');
 var router = express.Router();
 
-var cartModel = require('./modules/cartSchema.js');
+var Cart = require('./modules/cartSchema.js');
+var goods = require('./modules/goodsSchema');
 
-router.get('/', function(req, res) {
+//
+Cart.find(function () {
 
-    cartModel.find(function(err, cart){
+    }).populate('goods')
+    .exec(function (err, data) {
+        console.log('cart');
+    });
+router.get('/', function (req, res) {
+
+    Cart.find(function (err, cart) {
 
         if (err) return next(err);
         res.send(cart);
     });
 });
 
-router.post('/', function(req, res){
+router.post('/', function (req, res) {
 
-    cartModel.create(req.body);
+    Cart.create(req.body);
     res.send('add successful');
 });
 
+function add(err) {
+    if (err) throw err;
+    Cart.goods.push(goods._id);
+    number: 1;
+    lucy.save(cb1);
+}
 module.exports = router;
 
