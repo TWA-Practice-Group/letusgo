@@ -12,8 +12,16 @@ var Good = (function(){
         this.price = price;
     }
 
+    function addNewGood(name, unit, price){
 
-    function goodHasexisted(name){
+        goodsSchema.create({
+            name: name,
+            price: price,
+            unit: unit
+        });
+    }
+
+    function goodHasexisted(name, unit, price){
 
         goodsSchema.find(function(err, goods){
             if (err) return next(err);
@@ -23,14 +31,14 @@ var Good = (function(){
             });
 
             if(!goodHasexisted){
-                addNewGood();
+                addNewGood(name, unit, price);
             }
         });
     }
 
     Good.prototype.postGood = function() {
 
-        goodHasexisted(this.name), this.unit, this.price);
+        goodHasexisted(this.name, this.unit, this.price);
     };
 
     return Good;
