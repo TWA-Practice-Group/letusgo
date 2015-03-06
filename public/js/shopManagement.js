@@ -7,13 +7,16 @@ require.config({
     }
 });
 
-require(['semantic', 'jquery', 'shopManagement'], function(semantic, $) {
+require(['semantic', 'jquery'], function(semantic, $) {
 
     $(document).ready(function () {
 
         $('.deleteItem').on('click', function () {
 
+          var id = $(this).id;
+
             var $this = $(this);
+          console.log(id);
             $.ajax({
 
                 url: '/api/goods/' + $this.id,
