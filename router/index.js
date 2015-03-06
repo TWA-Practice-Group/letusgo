@@ -4,6 +4,7 @@ module.exports = function(app) {
     app.use('/shop', require('./routes/shop'));
     app.use('/shopManagement', require('./routes/shopManagement'));
     app.use('/addGoods', require('./routes/addGoods'));
+    app.use('/modifyGoods', require('/routes/modifyGoods'));
 
     app.use('/api/goods', require('./routes/goods'));
     app.use('/api/cart', require('./routes/cart'));
