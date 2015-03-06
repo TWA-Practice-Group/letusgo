@@ -8,7 +8,7 @@ require.config({
     }
 });
 
-require(['jquery', 'semantic'], function ($, semantic){
+require(['jquery', 'semantic'], function ($, semantic) {
 
     $(document).ready(function () {
 
@@ -21,19 +21,22 @@ require(['jquery', 'semantic'], function ($, semantic){
         });
 
     });
-        var name = $('input#goodName').val();
-        var unit = $('input#goodUnit').val();
-        var price = $('input#goodPrice').val();
+});
 
-        var intergrated = name && unit && price;
+function verifyInfo(){
+    var name = $('input#goodName').val();
+    var unit = $('input#goodUnit').val();
+    var price = $('input#goodPrice').val();
 
-        if (!intergrated) {
-            $('#emptyError').show();
-        } else {
+    var intergrated = name && unit && price;
 
-            $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
-                $('#emptyError').hide();
-                $('a#save').attr('href', 'shopManagement');
-            });
-        }
+    if (!intergrated) {
+        $('#emptyError').show();
+    } else {
+
+        $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
+            $('#emptyError').hide();
+            $('a#save').attr('href', 'shopManagement');
+        });
     }
+}
