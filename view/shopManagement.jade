@@ -32,11 +32,11 @@ html(lang="en")
                 th
             tbody#goods
               - each good in goods
-              tr
-                td #{good.name}
-                td #{good.unit}
-                td #{good.price}元
-                td
-                  div(class="ui inverted purple button") 修改
-                td
-                  div(id="#{good._id}" class="ui inverted blue button deleteItem") 删除
+                tr
+                  td #{good.name}
+                  td #{good.unit}
+                  td #{good.price}元
+                  td
+                    div(class="ui inverted purple button") 修改
+                  td
+                    div(id="#{good._id}" class="ui inverted blue button deleteItem") 删除
