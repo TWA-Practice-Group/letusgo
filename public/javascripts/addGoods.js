@@ -33,6 +33,7 @@ require(['jquery', 'semantic'], function ($, semantic) {
                 $('#emptyError').show();
             } else {
 
+                $('#emptyError').hide();
                 priceIsNumber(name, unit, price);
             }
         }
@@ -44,8 +45,11 @@ require(['jquery', 'semantic'], function ($, semantic) {
             var  priceIsNumber = reg.exec(price);
 
             if(!priceIsNumber){
-                $('#emptyError').show();
+
+                $('#priceError').show();
             }else{
+
+                $('#priceError').hide();
                 saveNewGood(name, unit, price);
             }
         }
