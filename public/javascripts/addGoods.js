@@ -21,12 +21,8 @@ require(['jquery', 'semantic'], function($, semantic) {
             verifyInfo();
         });
 
-<<<<<<< HEAD
 });
     function verifyInfo() {
-=======
-    });
->>>>>>> fix conflict in addGoods.js
         var name = $('input#goodName').val();
         var unit = $('input#goodUnit').val();
         var price = $('input#goodPrice').val();
