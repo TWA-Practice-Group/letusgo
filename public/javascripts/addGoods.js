@@ -2,7 +2,7 @@
 
 require.config({
     baseUrl: './',
-    paths:{
+    paths: {
         'jquery': './jquery/dist/jquery',
         'semantic': './semantic-ui/dist/semantic'
     }
