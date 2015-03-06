@@ -10,16 +10,18 @@ require.config({
 
 require(['jquery', 'semantic'], function($, semantic) {
 
-    $(document).ready(function(){
+    $(document).ready(function () {
+
+        $('#emptyError').hide();
 
         $('a#cancel').on('click', function () {
 
             $(this).attr('href', '/shopManagement');
         });
-
         $('a#save').on('click', function () {
             verifyInfo();
         });
+
 
 });
     function verifyInfo() {
@@ -59,5 +61,6 @@ require(['jquery', 'semantic'], function($, semantic) {
                 $('#emptyError').hide();
                 $('a#save').attr('href', '/shopManagement');
             });
-    });
-}
+        });
+    }
+
