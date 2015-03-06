@@ -10,4 +10,4 @@ var cartSchema = Schema({
 
 var cart = mongoose.model('cart', cartSchema);
 
-moudle.export = cart;
+module.export = cart;
