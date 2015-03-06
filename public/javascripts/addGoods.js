@@ -20,9 +20,7 @@ require(['jquery', 'semantic'], function ($) {
             $(this).attr('href', '/shopManagement');
         });
 
-        $('a#save').on('click', function () {
-            verifyInfo();
-        });
+        $('a#save').on('click', verifyInfo);
 
         function verifyInfo(){
             var unit = $('input#goodUnit').val();
