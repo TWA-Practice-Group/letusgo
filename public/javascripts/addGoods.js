@@ -27,13 +27,37 @@ require(['jquery', 'semantic'], function($, semantic) {
         var unit = $('input#goodUnit').val();
         var price = $('input#goodPrice').val();
 
-        var intergrated = name && unit && price;
 
-        if (!intergrated) {
+        var isIntergrated = name && unit && price;
+
+        if (!isIntergrated) {
             $('#emptyError').show();
         } else {
 
-            $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
+            priceIsNumber(name, unit, price);
+        }
+    }
+
+    function priceIsNumber(name, unit, price){
+
+        var reg = /^\d+(\.\d+)?$/;
+
+        var  priceIsNumber = reg.exec(price);
+
+        if(!priceIsNumber){
+            $('#emptyError').show();
+        }else{
+            saveNewGood(name, unit, price);
+        }
+    }
+
+    function saveNewGood() {
+
+        $.post('/api/goods', {name: name, unit: unit, price: price})
+            .success(function () {
+
                 $('#emptyError').hide();
                 $('a#save').attr('href', '/shopManagement');
             });
+    });
+}
