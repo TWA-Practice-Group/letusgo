@@ -2,13 +2,15 @@
 
 require.config({
     baseUrl: './',
-    paths: {
+    paths:{
         'jquery': './jquery/dist/jquery',
         'semantic': './semantic-ui/dist/semantic'
     }
 });
 
 require(['jquery', 'semantic'], function($, semantic) {
+
+    $(document).ready(function () {
 
         $('a#cancel').on('click', function () {
 
@@ -19,8 +21,12 @@ require(['jquery', 'semantic'], function($, semantic) {
             verifyInfo();
         });
 
+<<<<<<< HEAD
 });
     function verifyInfo() {
+=======
+    });
+>>>>>>> fix conflict in addGoods.js
         var name = $('input#goodName').val();
         var unit = $('input#goodUnit').val();
         var price = $('input#goodPrice').val();
