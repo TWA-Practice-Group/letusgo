@@ -14,15 +14,35 @@ router.get('/', function(req, res) {
 router.post('/', function(req, res) {
 
     goodModel.create(req.body);
-    res.send('add successful');
+
+    goodModel.find(function(err, goods){
+
+        res.send(goods);
+    });
 });
 
 router.delete('/:id', function(req, res) {
 
     var id = req.params.id;
-    goodModel.remove({_id: id}, function () {
+    var result;
 
-        res.send('delete success!');
+    goodModel.remove({_id: id}, function (err) {
+
+        if(err) {
+
+            result = {
+                status: 400
+            }
+        }  else {
+
+            result = {
+                status: 200,
+                info: 'delete successful',
+                data: {}
+            }
+        }
+
+        res.send(result);
     });
 });
 
