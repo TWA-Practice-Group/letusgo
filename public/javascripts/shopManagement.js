@@ -15,7 +15,7 @@ require(['semantic', 'jquery', 'shopManagement'], function(semantic, $) {
 
             var $this = $(this);
             $.ajax({
-                
+
                 url: '/api/goods/' + $this.id,
                 type: 'DELETE',
                 success: function(data){
