@@ -5,7 +5,7 @@ var bodyParser = require('body-parser');
 var app = express();
 var mongoose = require('mongoose');
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, 'view'));
 app.set('view engine', 'jade');
 
 app.use(bodyParser.json());

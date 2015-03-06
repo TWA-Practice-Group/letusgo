@@ -7,7 +7,8 @@ html(lang="en")
         meta(name="viewport" content="width=device-width")
         link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
         link(rel="stylesheet" type="text/css" href="styles/main.css")
-        script(src="javascripts/require.js" data-main="javascripts/shopManagement")
+
+        script(src="js/require.js" data-main="js/shopManagement")
     body#home
         header
             h5#logo  欢迎光临来此购网上购物商城
@@ -29,7 +30,7 @@ html(lang="en")
                                     th 单价
                                     th
                                     th
-                            tbody#goodLists
+                            tbody#goods
                                 - each good in goods
                                     tr
                                         td #{good.name}

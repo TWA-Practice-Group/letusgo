@@ -9,6 +9,7 @@ router.get('/', function(req, res, next) {
     connect.find(function (err, goods) {
 
         if (err) return next(err);
+        console.log(goods);
         res.render('shopManagement',{goods: goods});
     });
 });
