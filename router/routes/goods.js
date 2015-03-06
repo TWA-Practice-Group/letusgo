@@ -1,21 +1,28 @@
+
 var express = require('express');
 var router = express.Router();
 
 var goodModel = require('./modules/goodsSchema.js');
-var Good = require('./models/good');
+var Good = require('./models/good.js');
 
 router.get('/', function(req, res) {
 
-    goodModel.find(function(err, goods){
-        if (err) return next(err);
-        res.send(goods);
-    });
+  goodModel.find(function(err, goods){
+    if (err) return next(err);
+    res.send(goods);
+  });
 });
 
 router.post('/', function(req, res) {
 
-    goodModel.create(req.body);
-        res.send(goods);
+  var good = new Good(null, req.body.name, req.body.unit,req.body.price);
+  good.postGood();
+
+  res.send({
+    status: 200,
+    info: 'add successful',
+    data: {}
+  });
 });
 
 router.delete('/:id', function(req, res) {
