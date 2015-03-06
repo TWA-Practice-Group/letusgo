@@ -28,21 +28,11 @@ require(['jquery', 'semantic'], function ($, semantic) {
                 var unit = $('input#goodUnit').val();
                 var price = $('input#goodPrice').val();
 
-            var priceIsNumber = priceIsNumber();
-
             if (!isIntergrated) {
                 $('#emptyError').show();
             } else {
 
-                if (!isIntergrated) {
-                    $('#emptyError').show();
-                } else {
-
-                    $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
-                        $('#emptyError').hide();
-                        $('a#save').attr('href', '/shopManagement');
-                    });
-                }
+                priceIsNumber();
             }
         })
     })
@@ -61,12 +51,31 @@ require(['jquery', 'semantic'], function ($, semantic) {
                 var reg = /^\d+(\.\d+)?$/;
                 var price = $('input#goodPrice').val();
 
-                return reg.exec(price);
+                var  priceIsNumber = reg.exec(price);
+
+                if(!priceIsNumber){
+                    $('#emptyError').show();
+                }else{
+                    saveNewGood();
+                }
+            }
+
+            function saveNewGood(){
+
+                var unit = $('input#goodUnit').val();
+                var price = $('input#goodPrice').val();
+                var name = $('input#goodName').val();
+
+                $.post('/api/goods', {name: name, unit: unit, price: price})
+                    .success(function(){
+
+                        $('#emptyError').hide();
+                        $('a#save').attr('href', '/shopManagement');
+                    });
             }
 
 
         }
-
     });
 });
 
