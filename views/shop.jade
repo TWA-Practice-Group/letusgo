@@ -1,0 +1,34 @@
+doctype html
+html
+    head
+        -var pageName= "商品列表"
+        title= pageName
+        meta(charset="utf-8")
+        meta(name="viewport" content="width=device-width")
+
+        link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
+
+        script(src="jquery/dist/jquery.js")
+        script(src="semantic-ui/dist/semantic.js")
+    body
+
+        .ui.masthead
+            include ./viewModules/navBar.jade
+        .ui.grid.centered
+            h1 商品列表
+            .thirteen.wide.column
+                table.ui.large.table
+                    thead
+                        tr
+                        th.four.wide 名称
+                        th.three.wide 单位
+                        th.three.wide 价格
+                        th.three.wide 操作
+                    tbody.center
+                        -each good in goods
+                            tr
+                                td #{good.name}
+                                td #{good.unit}
+                                td #{good.price}元
+                                td 购买
+

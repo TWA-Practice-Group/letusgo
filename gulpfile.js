@@ -13,27 +13,25 @@ gulp.task('less_compiler', function () {
     .pipe(gulp.dest('.tmp/styles'));
 });
 
-gulp.task('clean', require('del').bind(null, ['.tmp']));
+gulp.task('clean', del.bind(null, ['.tmp']));
+
 gulp.task('serve', ['less_compiler'], function() {
 
   browserSync({
     notify: false,
     port: 9000,
     server: {
-      baseDir: ['.tmp', 'public'],
+      baseDir: [ 'public', '.tmp'],
       routes: {
-        '/node_modules': 'node_modules',
-        '/bower_components': 'bower_components',
-        '/images': 'images'
+        '/images': 'images',
+        '/styles': 'styles'
       }
     }
   });
 
   gulp.watch([
-    'public/styles/**/*.less',
-    'public/javascripts/**/*.js'
+    'public/styles/**/*.less'
   ]).on('change', reload);
 
   gulp.watch('public/styles/**/*.less', ['less_compiler', reload]);
-
 });
