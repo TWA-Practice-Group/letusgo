@@ -1,12 +1,12 @@
 require.config({
     baseUrl: './',
-    paths:{
+    paths: {
         'jquery': './jquery/dist/jquery',
         'semantic': './semantic-ui/dist/semantic'
     }
 });
 
-require(['jquery', 'semantic'], function (jquery, semantic){
+require(['jquery', 'semantic'], function ($, semantic){
 
     $(document).ready(function () {
 
