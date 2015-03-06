@@ -8,7 +8,7 @@ require.config({
     }
 });
 
-require(['jquery', 'semantic'], function ($, semantic) {
+require(['jquery', 'semantic'], function ($) {
 
     $(document).ready(function () {
 
@@ -19,6 +19,7 @@ require(['jquery', 'semantic'], function ($, semantic) {
 
             $(this).attr('href', '/shopManagement');
         });
+
         $('a#save').on('click', function () {
             verifyInfo();
         });
