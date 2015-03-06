@@ -50,7 +50,7 @@ require(['jquery', 'semantic'], function ($, semantic) {
             }
         }
 
-        function saveNewGood(){
+        function saveNewGood(name, unit, price){
 
             $.post('/api/goods', {name: name, unit: unit, price: price})
                 .success(function(){
