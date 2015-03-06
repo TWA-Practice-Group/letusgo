@@ -13,6 +13,7 @@ require(['jquery', 'semantic'], function ($, semantic) {
     $(document).ready(function () {
 
         $('#emptyError').hide();
+        $('#priceError').hide();
 
         $('a#cancel').on('click', function () {
 
