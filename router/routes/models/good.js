@@ -26,18 +26,17 @@ var Good = (function(){
         goodsSchema.find(function(err, goods){
             if (err) return next(err);
 
-            var goodHasexisted = _.findIndex(goods, function(eachGood) {
+            var goodindex = _.findIndex(goods, function(eachGood) {
                 return eachGood.name == name;
             });
 
-            if(!goodHasexisted){
+            if(goodindex === -1){
                 addNewGood(name, unit, price);
             }
         });
     }
 
     Good.prototype.postGood = function() {
-
         goodHasexisted(this.name, this.unit, this.price);
     };
 
