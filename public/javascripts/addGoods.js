@@ -10,19 +10,19 @@ require.config({
 
 require(['jquery', 'semantic'], function ($, semantic) {
 
-
     $(document).ready(function () {
 
-        $(document).ready(function () {
+        $('#emptyError').hide();
 
-            $('a#cancel').on('click', function () {
+        $('a#cancel').on('click', function () {
 
-                $(this).attr('href', '/shopManagement');
-            });
-            $('a#save').on('click', function () {
-                verifyInfo();
-            });
+            $(this).attr('href', '/shopManagement');
+        });
+        $('a#save').on('click', function () {
+            verifyInfo();
+        });
 
+        function verifyInfo(){
             var unit = $('input#goodUnit').val();
             var price = $('input#goodPrice').val();
             var name = $('input#goodName').val();
@@ -35,32 +35,31 @@ require(['jquery', 'semantic'], function ($, semantic) {
 
                 priceIsNumber(name, unit, price);
             }
+        }
 
-            function priceIsNumber(name, unit, price){
+        function priceIsNumber(name, unit, price){
 
-                var reg = /^\d+(\.\d+)?$/;
+            var reg = /^\d+(\.\d+)?$/;
 
-                var  priceIsNumber = reg.exec(price);
+            var  priceIsNumber = reg.exec(price);
 
-                if(!priceIsNumber){
-                    $('#emptyError').show();
-                }else{
-                    saveNewGood(name, unit, price);
-                }
+            if(!priceIsNumber){
+                $('#emptyError').show();
+            }else{
+                saveNewGood(name, unit, price);
             }
+        }
 
-            function saveNewGood(){
+        function saveNewGood(){
 
-                $.post('/api/goods', {name: name, unit: unit, price: price})
-                    .success(function(){
+            $.post('/api/goods', {name: name, unit: unit, price: price})
+                .success(function(){
 
-                        $('#emptyError').hide();
-                        $('a#save').attr('href', '/shopManagement');
-                    });
-            }
+                    $('#emptyError').hide();
+                    $('a#save').attr('href', '/shopManagement');
+                });
+        }
 
-
-        });
     });
 });
 
