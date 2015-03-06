@@ -12,14 +12,18 @@ require(['jquery', 'semantic'], function ($, semantic) {
 
     $(document).ready(function () {
 
-        $('a#cancel').on('click', function () {
-            $(this).attr('href', '/shopManagement');
-        });
+        $(document).ready(function () {
 
-        $('a#save').on('click', function () {
-            verifyInfo();
-        });
+            $('a#cancel').on('click', function () {
 
+                $(this).attr('href', '/shopManagement');
+            });
+
+            $('a#save').on('click', function () {
+                verifyInfo();
+            });
+
+        });
     });
 });
     function verifyInfo() {
