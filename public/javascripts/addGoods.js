@@ -10,6 +10,7 @@ require.config({
 
 require(['jquery', 'semantic'], function ($) {
 
+
     $(document).ready(function () {
 
         $('#emptyError').hide();
@@ -17,7 +18,9 @@ require(['jquery', 'semantic'], function ($) {
 
         $('a#save').on('click', verifyInfo);
 
-        function verifyInfo(){
+
+        function verifyInfo() {
+
             var unit = $('input#goodUnit').val();
             var price = $('input#goodPrice').val();
             var name = $('input#goodName').val();
@@ -46,6 +49,7 @@ require(['jquery', 'semantic'], function ($) {
 
                 $('#priceError').hide();
                 saveNewGood(name, unit, price);
+
             }
         }
 
