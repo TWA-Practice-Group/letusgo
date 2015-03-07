@@ -1,33 +1,29 @@
-<<<<<<< HEAD
-'use strict';
-
 require.config({
     baseUrl: './',
     paths:{
-        'jquery': './jquery/dist/jquery',
-        'semantic': './semantic-ui/dist/semantic'
+        'jquery': './jquery/dist/jquery'
     }
 });
 
-require(['jquery', 'semantic'], function ($) {
+require(['jquery'], function($, _){
 
-    $(document).ready(function () {
+    $(document).ready(function(){
 
         $('#emptyError').hide();
         $('#priceError').hide();
 
 
-        $('a#cancel').on('click', function () {
+        $('a#cancel').on('click', function(){
             $(this).attr('href', 'shopManagement');
         });
 
-        $('a#save').on('click', function () {
+        $('a#save').on('click', function(){
             verifyInfo();
         });
 
 
-        function verifyInfo() {
-
+        function verifyInfo(){
+            var name = $('input#goodName').val();
             var unit = $('input#goodUnit').val();
             var price = $('input#goodPrice').val();
             var name = $('input#goodName').val();
@@ -55,5 +51,4 @@ require(['jquery', 'semantic'], function ($) {
 
     });
 });
-
 
