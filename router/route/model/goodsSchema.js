@@ -40,7 +40,6 @@ function goodHasexisted(name, unit, price) {
   });
 }
 module.exports = goodsModel;
-//module.exports = mongoose.model('goods', goodsSchema);
 
 
 
