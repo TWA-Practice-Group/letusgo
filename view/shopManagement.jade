@@ -15,14 +15,14 @@ html(lang="en")
     div.container
       div.ui.masthead.inverted.segment
         include ./viewModule/navBar.jade
-      div(class="ui grid")
-        div(class="ten wide centered column")
+      div.ui.grid(class="ui grid")
+        div.ten.wide.centered.column
           h1 LetUsGo商品管理列表
-        div(class="three column row")
-          div(class="right floated column")
-            a(class="ui orange button" href="addGoods") 增加商品
-        div(class="ten wide centered column")
-          table(class="ui large table")
+        div.three.column.row
+          div.right.floated.column
+            a.ui.orange.button(href="addGoods") 增加商品
+        div.eight.wide.centered.column
+          table.ui.large.table
             thead
               tr
                 th 名称
@@ -36,7 +36,6 @@ html(lang="en")
                   td #{good.name}
                   td #{good.unit}
                   td #{good.price}元
-                  td
-                    div(class="ui inverted purple button") 修改
-                  td
-                    div(id="#{good._id}" class="ui inverted blue button deleteItem") 删除
+                  td(id="#{good._id}")
+                    div.ui.inverted.purple.button.modifyGoods 修改
+                    div.ui.inverted.blue.button.deleteGoods 删除

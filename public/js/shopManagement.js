@@ -11,9 +11,10 @@ require(['semantic', 'jquery'], function (semantic, $) {
 
   $(document).ready(function () {
 
-    $('.deleteItem').on('click', function () {
+    $('.deleteGoods').on('click', function () {
 
-      var id = this.id;
+      var id = this.closest('td').id;
+
       var $this = $(this);
       $.ajax({
 
