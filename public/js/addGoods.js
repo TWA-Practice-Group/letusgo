@@ -1,44 +1,60 @@
+'use strict';
+
 require.config({
-    baseUrl: './',
-    paths: {
-        'jquery': './jquery/dist/jquery',
-        'semantic': './semantic-ui/dist/semantic'
-    }
+  baseUrl: './',
+  paths:{
+    'jquery': './jquery/dist/jquery',
+    'semantic': './semantic-ui/dist/semantic'
+  }
 });
 
-require(['jquery', 'semantic'], function($, semantic) {
+require(['jquery', 'semantic'], function ($) {
 
   $(document).ready(function () {
 
     $('#emptyError').hide();
     $('#priceError').hide();
 
-    $('a#cancel').on('click', function(){
-        $(this).attr('href', 'shopManagement');
-    });
+    $('a#save').on('click', verifyInfo);
 
-    $('a#save').on('click', function () {
-      verifyInfo();
-    });
+    function verifyInfo(){
+      var unit = $('input#goodUnit').val();
+      var price = $('input#goodPrice').val();
+      var name = $('input#goodName').val();
 
-    });
-  });
-  function verifyInfo() {
-    var name = $('input#goodName').val();
-    var unit = $('input#goodUnit').val();
-    var price = $('input#goodPrice').val();
+      var isIntergrated = name && unit && price;
 
-    var intergrated = name && unit && price;
-
-    if (!intergrated) {
-      $('#emptyError').show();
-    } else {
-
-      $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
+      if (!isIntergrated) {
+        $('#emptyError').show();
+      } else {
         $('#emptyError').hide();
-        $('a#save').attr('href', 'shopManagement');
-      });
+        priceIsNumber(name, unit, price);
+      }
     }
 
-  }
+    function priceIsNumber(name, unit, price){
+
+      var reg = /^\d+(\.\d+)?$/;
+
+      var  priceIsNumber = reg.exec(price);
+
+      if(!priceIsNumber){
+
+        $('#priceError').show();
+      }else{
+
+        $('#priceError').hide();
+        saveNewGood(name, unit, price);
+      }
+    }
+
+    function saveNewGood(name, unit, price){
+
+      $.post('/api/goods', {name: name, unit: unit, price: price})
+        .success(function(){
+          $(location).attr('href','/shopManagement')
+        });
+    }
+
+  });
 });

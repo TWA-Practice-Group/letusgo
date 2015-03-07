@@ -10,4 +10,10 @@ router.get('/', function (req, res, next) {
   });
 });
 
+router.post('/', function(req, res){
+
+    cartModel.create(req.body);
+    res.send('add successful');
+});
+
 module.exports = router;

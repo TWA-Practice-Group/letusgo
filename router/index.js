@@ -5,11 +5,8 @@ module.exports = function(app) {
     app.use('/shopManagement', require('./routes/shopManagement'));
     app.use('/addGoods', require('./routes/addGoods'));
     app.use('/modifyGoods', require('./routes/modifyGoods'));
-
-    app.use('/modifyGoods', require('./routes/modifyGoods'));
+    app.use('/cart', require('./routes/cart'));
 
     app.use('/api/goods', require('./routes/goods'));
     app.use('/api/cartGoods', require('./routes/cartGoods'));
-    app.use('/cart', require('./routes/cart'));
-
 };
