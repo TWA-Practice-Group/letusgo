@@ -1,7 +1,7 @@
 'use strict';
 
 var _ = require('lodash');
-var goodsSchema = require('../module/goodsSchema');
+var goodsSchema = require('../model/goodsSchema');
 
 var Good = (function () {
 
