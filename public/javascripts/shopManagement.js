@@ -12,7 +12,8 @@ require(['jquery', 'semantic-ui'], function( $ ) {
 
     $(document).ready(function () {
 
-        $('#deleteItem').on('click', function () {
+        $('.deleteItem').on('click', function (event) {
+            console.log(event.target.id);
             $.ajax({
                 url: './api/goods',
                 type: 'delete',
