@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var cartModel = require('./model/cartSchema.js');
+var cartModel = require('../../model/cartSchema.js');
 
 router.get('/', function (req, res) {
 

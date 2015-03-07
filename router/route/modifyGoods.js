@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var goodModel = require('./model/goodsSchema.js');
+var goodModel = require('../../model/goodsSchema.js');
 
 router.get('/', function (req, res) {
   res.render('modifyGoods');
