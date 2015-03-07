@@ -1,0 +1,42 @@
+doctype html
+html(lang="en")
+  head
+    - var name = '来此购网上购物商城'
+    title= name
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width")
+    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
+    link(rel="stylesheet" type="text/css" href="styles/main.css")
+
+    script(src="js/require.js" data-main="js/shopManagement")
+  body#home
+    header
+      h5#logo  欢迎光临来此购网上购物商城
+    div.container
+      div.ui.masthead.inverted.segment
+        include ./viewModule/navBar.jade
+      div(class="ui grid")
+        div(class="ten wide centered column")
+          h1 LetUsGo商品管理列表
+        div(class="three column row")
+          div(class="right floated column")
+            a(class="ui orange button" href="addGoods") 增加商品
+        div(class="ten wide centered column")
+          table(class="ui large table")
+            thead
+              tr
+                th 名称
+                th 单位
+                th 单价
+                th
+                th
+            tbody#goods
+              - each good in goods
+                tr
+                  td #{good.name}
+                  td #{good.unit}
+                  td #{good.price}元
+                  td
+                    div(class="ui inverted purple button") 修改
+                  td
+                    div(id="#{good._id}" class="ui inverted blue button deleteItem") 删除
