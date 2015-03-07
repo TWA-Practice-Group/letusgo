@@ -1,12 +1,12 @@
 var express = require('express');
 var router = express.Router();
 
-var goodModel = require('./model/goodsSchema.js');
-var Good = require('./model/good.js');
+var Good = require('./model/goodsSchema');
+//var Good = require('./model/good.js');
 
-router.get('/', function (req, res) {
+router.get('/', function (req, res, next) {
 
-  goodModel.find(function (err, goods) {
+  Good.find(function (err, goods) {
     if (err) return next(err);
     res.send(goods);
   });
@@ -14,8 +14,9 @@ router.get('/', function (req, res) {
 
 router.post('/', function (req, res) {
 
-  var good = new Good(null, req.body.name, req.body.unit, req.body.price);
-  good.postGood();
+  //var good = new Good(null, req.body.name, req.body.unit, req.body.price);
+  console.log(req.body.name);
+  Good.postGood(req.body.name, req.body.unit, req.body.price);
 
   res.send({
     status: 200,
@@ -29,7 +30,7 @@ router.delete('/:id', function (req, res) {
   var id = req.params.id;
   var result;
 
-  goodModel.remove({_id: id}, function (err) {
+  Good.remove({_id: id}, function (err) {
 
     if (err) {
 
