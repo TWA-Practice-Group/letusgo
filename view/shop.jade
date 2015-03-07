@@ -10,6 +10,7 @@ html
 
         script(src="jquery/dist/jquery.js")
         script(src="semantic-ui/dist/semantic.js")
+        script(src="js/require.js" data-main="javascripts/addToCart")
     body
 
         .ui.masthead
@@ -30,5 +31,6 @@ html
                                 td #{good.name}
                                 td #{good.unit}
                                 td #{good.price}元
-                                td 购买
+                                td
+                                    button(id='#{good.id}' class = "ui green button buy") 购买
 
