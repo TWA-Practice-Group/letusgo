@@ -6,23 +6,20 @@ require.config({
     }
 });
 
-require(['jquery', 'semantic'], function(ui, $) {
+require(['jquery', 'semantic'], function($, ui ) {
 
   $(document).ready(function () {
 
     $('#emptyError').hide();
     $('#priceError').hide();
 
-
-    $('a#cancel').on('click', function () {
-      $(this).attr('href', 'shopManagement');
-      $('a#cancel').on('click', function () {
+    $('a#cancel').on('click', function(){
         $(this).attr('href', 'shopManagement');
-      });
+    });
 
-      $('a#save').on('click', function () {
-        verifyInfo();
-      });
+    $('a#save').on('click', function () {
+      verifyInfo();
+    });
 
     });
   });
