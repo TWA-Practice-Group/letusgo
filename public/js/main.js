@@ -5,11 +5,11 @@ requirejs.config({
   }
 });
 
-require(['jquery'], function( $ ) {
-    console.log( 'hello !' );
-    
-    $(document).ready(function(){
+require(['jquery'], function ($) {
+  console.log('hello !');
 
-      $('#home').text('hello world!');
+  $(document).ready(function () {
+
+    $('#home').text('hello world!');
   });
 });

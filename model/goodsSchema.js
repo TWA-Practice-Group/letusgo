@@ -11,7 +11,7 @@ var goodsSchema = new mongoose.Schema({
 
 var goodsModel = mongoose.model('goods', goodsSchema);
 
-goodsModel.postGood = function(name, unit, price) {
+goodsModel.postGood = function (name, unit, price) {
 
   goodHasexisted(name, unit, price);
 };

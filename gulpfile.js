@@ -15,13 +15,13 @@ gulp.task('less_compiler', function () {
 
 gulp.task('clean', del.bind(null, ['.tmp']));
 
-gulp.task('serve', ['less_compiler'], function() {
+gulp.task('serve', ['less_compiler'], function () {
 
   browserSync({
     notify: false,
     port: 9000,
     server: {
-      baseDir: [ 'public', '.tmp'],
+      baseDir: ['public', '.tmp'],
       routes: {
         '/images': 'images',
         '/styles': 'styles'

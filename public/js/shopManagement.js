@@ -1,32 +1,32 @@
 'use strict';
 require.config({
-    baseUrl: './',
-    paths:{
-        'jquery': './jquery/dist/jquery',
-        'semantic': './semantic-ui/dist/semantic',
-    }
+  baseUrl: './',
+  paths: {
+    'jquery': './jquery/dist/jquery',
+    'semantic': './semantic-ui/dist/semantic',
+  }
 });
 
-require(['semantic', 'jquery'], function(semantic, $) {
+require(['semantic', 'jquery'], function (semantic, $) {
 
-    $(document).ready(function () {
+  $(document).ready(function () {
 
-        $('.deleteItem').on('click', function () {
+    $('.deleteItem').on('click', function () {
 
-            var id = this.id;
-            var $this = $(this);
-            $.ajax({
+      var id = this.id;
+      var $this = $(this);
+      $.ajax({
 
-                url: '/api/goods/' + id,
-                type: 'DELETE',
-                success: function(data){
+        url: '/api/goods/' + id,
+        type: 'DELETE',
+        success: function (data) {
 
-                    if(200 == data.status) {
+          if (200 == data.status) {
 
-                        $this.closest('tr').remove();
-                    }
-                }
-            });
-        });
+            $this.closest('tr').remove();
+          }
+        }
+      });
     });
+  });
 });

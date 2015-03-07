@@ -2,7 +2,7 @@
 
 require.config({
   baseUrl: './',
-  paths:{
+  paths: {
     'jquery': './jquery/dist/jquery',
     'semantic': './semantic-ui/dist/semantic'
   }
@@ -17,7 +17,7 @@ require(['jquery', 'semantic'], function ($) {
 
     $('a#save').on('click', verifyInfo);
 
-    function verifyInfo(){
+    function verifyInfo() {
       var unit = $('input#goodUnit').val();
       var price = $('input#goodPrice').val();
       var name = $('input#goodName').val();
@@ -32,27 +32,27 @@ require(['jquery', 'semantic'], function ($) {
       }
     }
 
-    function priceIsNumber(name, unit, price){
+    function priceIsNumber(name, unit, price) {
 
       var reg = /^\d+(\.\d+)?$/;
 
-      var  priceIsNumber = reg.exec(price);
+      var priceIsNumber = reg.exec(price);
 
-      if(!priceIsNumber){
+      if (!priceIsNumber) {
 
         $('#priceError').show();
-      }else{
+      } else {
 
         $('#priceError').hide();
         saveNewGood(name, unit, price);
       }
     }
 
-    function saveNewGood(name, unit, price){
+    function saveNewGood(name, unit, price) {
 
       $.post('/api/goods', {name: name, unit: unit, price: price})
-        .success(function(){
-          $(location).attr('href','/shopManagement')
+        .success(function () {
+          $(location).attr('href', '/shopManagement')
         });
     }
 
