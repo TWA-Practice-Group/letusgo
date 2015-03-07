@@ -10,7 +10,6 @@ require.config({
 
 require(['jquery', 'semantic'], function ($) {
 
-
     $(document).ready(function () {
 
         $('#emptyError').hide();
