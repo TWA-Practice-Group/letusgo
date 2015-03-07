@@ -2,8 +2,11 @@ var express = require('express');
 var router = express.Router();
 
 var Good = require('./model/goodModel');
+var goodModel = require('./modules/goodsSchema');
 
 router.get('/', function(req, res) {
+
+    res.send(goodModel.get());
 
     goodModel.find(function(err, goods){
         if (err) return next(err);
@@ -24,13 +27,10 @@ router.post('/', function(req, res) {
 });
 
 router.post('/', function(req, res){
-    var good = new Good(null, req.body.name, req.body.unit, req.body.price);
 
-    console.log(req.body.name, req.body.unit, req.body.price);
-    console.log(JSON.stringify(req.param('name')));
-
-        res.send('delete success!');
-    });
+    goodModel.create(req.body);
+    res.send('add successful');
+});
 
 module.exports = router;
 
