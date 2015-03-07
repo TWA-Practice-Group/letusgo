@@ -6,19 +6,26 @@ require.config({
         'semantic': './semantic-ui/dist/semantic'
     }
 });
-require(['semantic', 'jquery'], function( semantic, $ ) {
+
+
+require(['jquery', 'semantic-ui'], function( $ ) {
 
     $(document).ready(function () {
 
-        $('.deleteItem').on('click', function () {
-            console.log(this.id);
+        $('#deleteItem').on('click', function () {
             $.ajax({
-                url: '/api/goods/' + this.id,
-                type: 'DELETE',
-                success: function(result) {
-                    // Do something with the result
+                url: './api/goods',
+                type: 'delete',
+                data: 'id',
+                async: false, //默认为true 异步
+                error: function () {
+                    alert('error');
+                },
+                success: function (data) {
+                    $("#" + divs).html(data);
                 }
             });
+
         });
     });
 });
