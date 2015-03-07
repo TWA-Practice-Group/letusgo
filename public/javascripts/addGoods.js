@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 'use strict';
 
 require.config({
@@ -15,7 +16,14 @@ require(['jquery', 'semantic'], function ($) {
         $('#emptyError').hide();
         $('#priceError').hide();
 
-        $('a#save').on('click', verifyInfo);
+
+        $('a#cancel').on('click', function () {
+            $(this).attr('href', 'shopManagement');
+        });
+
+        $('a#save').on('click', function () {
+            verifyInfo();
+        });
 
 
         function verifyInfo() {
@@ -30,25 +38,10 @@ require(['jquery', 'semantic'], function ($) {
                 $('#emptyError').show();
             } else {
 
-                $('#emptyError').hide();
-                priceIsNumber(name, unit, price);
-            }
-        }
-
-        function priceIsNumber(name, unit, price){
-
-            var reg = /^\d+(\.\d+)?$/;
-
-            var  priceIsNumber = reg.exec(price);
-
-            if(!priceIsNumber){
-
-                $('#priceError').show();
-            }else{
-
-                $('#priceError').hide();
-                saveNewGood(name, unit, price);
-
+                $.post('/api/goods', {name: name, unit: unit, price: price}, function () {
+                    $('#emptyError').hide();
+                    $('a#save').attr('href', 'shopManagement');
+                });
             }
         }
 
