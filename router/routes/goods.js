@@ -1,8 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var goodModel = require('./modules/goodsSchema.js');
-var Good = require('./models/good.js');
+var Good = require('./model/goodModel');
 
 router.get('/', function(req, res) {
 
@@ -24,14 +23,14 @@ router.post('/', function(req, res) {
     });
 });
 
-router.delete('/:id', function(req, res) {
+router.post('/', function(req, res){
+    var good = new Good(null, req.body.name, req.body.unit, req.body.price);
 
-    var id = req.params.id;
-    goodModel.remove({_id: id}, function () {
+    console.log(req.body.name, req.body.unit, req.body.price);
+    console.log(JSON.stringify(req.param('name')));
 
         res.send('delete success!');
     });
-});
 
 module.exports = router;
 
