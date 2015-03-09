@@ -32,15 +32,15 @@ html(lang="en")
       .ui.grid
         .eight.wide.column
           label 商品名称
-            input(id="goodName", placeholder='商品名称', type='text')
+            input(id="goodName", placeholder='商品名称', type='text', value='#{good.name}')
         .eight.wide.column
         .eight.wide.column
           label 商品单位
-            input(id="goodUnit", placeholder='商品单位', type='text')
+            input(id="goodUnit", placeholder='商品单位', type='text', value='#{good.unit}')
         .eight.wide.column
         .eight.wide.column
           label 商品单价
-            input(id="goodPrice", placeholder='商品单价', type='text')
+            input(id="goodPrice", placeholder='商品单价', type='text', value='#{good.price}')
       a.ui.green.submit.button(id="save") 保存
 
 
