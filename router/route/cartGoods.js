@@ -1,11 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-var cartModel = require('../../model/cartSchema.js');
+var Cart = require('../../model/cartSchema.js');
 
 router.get('/', function (req, res) {
 
-  cartModel.find(function (err, cart) {
+  Cart.find(function (err, cart) {
 
     if (err) return next(err);
     res.send(cart);
@@ -13,8 +13,8 @@ router.get('/', function (req, res) {
 });
 
 router.post('/', function (req, res) {
-
-  cartModel.create(req.body);
+  var id = req.body.id;
+  Cart.create({goodsId: id, number: 1});
   res.send('add successful');
 });
 
