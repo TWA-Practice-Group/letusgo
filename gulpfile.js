@@ -8,7 +8,7 @@ var reload = browserSync.reload;
 
 gulp.task('less_compiler', function () {
 
-  return gulp.src('public/styles/**/*.less')
+  return gulp.src('public/style/**/*.less')
     .pipe(less())
     .pipe(gulp.dest('.tmp/styles'));
 });
