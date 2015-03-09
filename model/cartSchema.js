@@ -3,11 +3,11 @@ var mongoose = require('mongoose');
 var Goods = require('./goodsSchema');
 
 var cartSchema = new mongoose.Schema({
-  goodsId:{
+  goodsId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Goods'
   },
-  number:Number
+  number: Number
 });
 
 module.exports = mongoose.model('cart', cartSchema);
