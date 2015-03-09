@@ -28,5 +28,10 @@ require(['semantic', 'jquery'], function (semantic, $) {
         }
       });
     });
+
+    $('.modifyGoods').on('click', function () {
+      var id = this.id;
+      $(location).attr('href', '/modifyGoods/' + id);
+    })
   });
 });
