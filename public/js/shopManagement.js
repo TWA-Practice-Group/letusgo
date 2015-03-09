@@ -31,7 +31,7 @@ require(['semantic', 'jquery'], function (semantic, $) {
     });
 
     $('.modifyGoods').on('click', function () {
-      var id = this.id;
+      var id = this.closest('td').id;
       $(location).attr('href', '/modifyGoods/' + id);
     })
   });
