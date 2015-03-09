@@ -48,4 +48,30 @@ router.delete('/:id', function (req, res) {
   });
 });
 
+router.post('/:id', function (req, res) {
+  var id = req.params.id;
+  var result;
+
+  Good.update({_id: id}, {$set:
+  {name: req.body.name,
+   unit: req.body.unit,
+   price: req.body.price}
+  }, function(err) {
+    if (err) {
+      result = {
+        status: 400
+      }
+    } else {
+      result = {
+        status: 200,
+        info: 'update successful',
+        data: {}
+      }
+    }
+
+    res.send(result);
+  });
+
+});
+
 module.exports = router;
