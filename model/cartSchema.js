@@ -1,11 +1,13 @@
 'use strict';
 var mongoose = require('mongoose');
+var Goods = require('./goodsSchema');
 
 var cartSchema = new mongoose.Schema({
-  name: String,
-  unit: String,
-  price: Number,
-  number: Number
+  goodsId:{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Goods'
+  },
+  number:Number
 });
 
 module.exports = mongoose.model('cart', cartSchema);
