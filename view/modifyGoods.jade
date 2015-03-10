@@ -41,6 +41,6 @@ html(lang="en")
         .eight.wide.column
           label 商品单价
             input(id="goodPrice", placeholder='商品单价', type='text', value='#{good.price}')
-      a.ui.green.submit.button(id="save") 保存
+      a.ui.green.submit.button(id="#{good.id}", class='save') 保存
 
 
