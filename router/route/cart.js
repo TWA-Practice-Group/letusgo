@@ -1,19 +1,16 @@
 var express = require('express');
 var router = express.Router();
 
-var cartSchema = require('../../model/cartSchema.js');
+var Cart = require('../../model/cartSchema.js');
 
-router.get('/', function (req, res, next) {
-  cartSchema.find(function (err, cartItem) {
-    if (err) return next(err);
-    res.render('cart', {cart: cartItem});
-  });
+router.get('/', function (req, res) {
+
+  Cart.find()
+    .populate('itemId', 'name unit price', null)
+    .exec(function(err, cartItems) {
+      res.render('cart',{cartItems:cartItems});
+    });
 });
 
-router.post('/', function (req, res) {
-
-  cartModel.create(req.body);
-  res.send('add successful');
-});
 
 module.exports = router;
