@@ -12,7 +12,25 @@ require(['jquery', 'semantic'], function ($) {
 
   $(document).ready(function () {
 
-    $('a#save').on('click', verifyInfo);
+    $('a#save').on('click', function(){
+
+      initBorder();
+      initErrorBox();
+
+      verifyInfo();
+    });
+
+    function initBorder(){
+
+      document.getElementById('itemName').style.border = 'grey 1px solid';
+      document.getElementById('itemUnit').style.border = 'grey 1px solid';
+      document.getElementById('itemPrice').style.border = 'grey 1px solid';
+    }
+
+    function initErrorBox(){
+      document.getElementById('emptyError').style.display = 'none';
+      document.getElementById('inputError').style.display = 'none';
+    }
 
     function verifyInfo() {
       var unit = $('input#itemUnit').val();
@@ -22,27 +40,48 @@ require(['jquery', 'semantic'], function ($) {
       var isIntergrated = name && unit && price;
 
       if (!isIntergrated) {
-        $('#emptyError').show();
+        document.getElementById('emptyError').style.display = 'block';
+
       } else {
-        $('#emptyError').hide();
-        priceIsNumber(name, unit, price);
+
+        if(inputsIsRight(name, unit, price)){
+
+          saveNewItem(name, unit, price);
+        }else{
+
+          document.getElementById('inputError').style.display = 'block';
+        }
       }
     }
 
-    function priceIsNumber(name, unit, price) {
+    function inputsIsRight(name, unit, price){
+      if(!inputIsword(name)){
+        document.getElementById('itemName').style.border = 'red 1px solid';
+      }
+
+      if(!inputIsword(unit)){
+        document.getElementById('itemUnit').style.border = 'red 1px solid';
+      }
+
+      if(!priceIsNumber(price)){
+        document.getElementById('itemPrice').style.border = 'red 1px solid';
+      }
+
+      var inputsIsRight = inputIsword(name) && inputIsword(unit) && priceIsNumber(price);
+
+      return inputsIsRight;
+    }
+
+    function inputIsword(word){
+
+      var reg = /^\s/;
+      return !reg.exec(word);
+    }
+
+    function priceIsNumber(price){
 
       var reg = /^\d+(\.\d+)?$/;
-
-      var priceIsNumber = reg.exec(price);
-
-      if (!priceIsNumber) {
-
-        $('#priceError').show();
-      } else {
-
-        $('#priceError').hide();
-        saveNewItem(name, unit, price);
-      }
+      return reg.exec(price);
     }
 
     function saveNewItem(name, unit, price) {
