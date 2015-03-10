@@ -2,24 +2,17 @@ var express = require('express');
 var router = express.Router();
 
 var Cart = require('../../model/cartSchema');
+var Item = require('../../model/ItemSchema');
 router.get('/', function (req, res) {
-  //
-  //Cart.find()
-  //  .populate('goodsId', 'name unit price', null)
-  //  .exec(function(err, docs) {
-  //    console.log('099999999');
-  //    console.log(docs[0].goodsId.name); // post-by-aikin
-  //    res.send(docs[0].goodsId.name);
-  //  });
 
-  //Cart.find(function (err, cart) {
-  //
-  //  if (err) return next(err);
-  //  res.send(cart);
-  //});
+  Cart.find()
+    .populate('itemId', 'name unit price', null)
+    .exec(function(err, cartItem) {
+      res.render('cart',{cartItems:cartItem});
+    });
 });
 
-router.post('/', function (req, res) {
+router.post('/', function (req) {
   var id = req.body.id;
   Cart.create({itemId: id, number: 1});
 });

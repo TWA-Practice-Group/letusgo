@@ -9,7 +9,7 @@ var itemSchema = new mongoose.Schema({
   price: Number
 });
 
-var itemModel = mongoose.model('item', itemSchema);
+var itemModel = mongoose.model('Item', itemSchema);
 
 itemModel.postItem = function (name, unit, price) {
 
