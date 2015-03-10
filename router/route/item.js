@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var Item = require('../../model/ItemSchema');
+var Item = require('../../model/itemSchema');
 
 router.get('/', function (req, res, next) {
 
@@ -51,11 +51,7 @@ router.post('/:id', function (req, res) {
   var id = req.params.id;
   var result;
 
-  Item.update({_id: id}, {$set:
-  {name: req.body.name,
-   unit: req.body.unit,
-   price: req.body.price}
-  }, function(err) {
+  Item.updateItem(id, req.body.name, req.body.unit, req.body.price, function (err) {
     if (err) {
       result = {
         status: 400
@@ -70,7 +66,6 @@ router.post('/:id', function (req, res) {
 
     res.send(result);
   });
-
 });
 
 module.exports = router;

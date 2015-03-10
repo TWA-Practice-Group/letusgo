@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 
-var itemModel = require('../../model/ItemSchema.js');
+var itemModel = require('../../model/itemSchema.js');
 
 router.get('/:id', function (req, res, next) {
 
