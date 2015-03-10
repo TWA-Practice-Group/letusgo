@@ -33,15 +33,18 @@ html(lang="en")
       .ui.grid
         .eight.wide.column
           label 商品名称
-            input#itemName(placeholder='商品名称', type='text', value='#{item.name}')
+            div.ui.input.error
+              input#itemName(placeholder='请输入商品名称', type='text', value='#{item.name}')
         .eight.wide.column
         .eight.wide.column
           label 商品单位
-            input#itemUnit(placeholder='商品单位', type='text', value='#{item.unit}')
+            div.ui.input.error
+              input#itemUnit(placeholder='请输入商品单位', type='text', value='#{item.unit}')
         .eight.wide.column
         .eight.wide.column
           label 商品单价
-            input#itemPrice(placeholder='商品单价', type='text', value='#{item.price}')
+            div.ui.input.error
+              input#itemPrice(placeholder='请输入商品单价', type='text', value='#{item.price}')
       a.ui.green.submit.button.save(id="#{item.id}") 保存
 
 
