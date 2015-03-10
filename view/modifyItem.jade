@@ -8,39 +8,48 @@ html(lang="en")
     link(rel="stylesheet" type="text/css" href="../semantic-ui/dist/semantic.css")
     link(rel="stylesheet" type="text/css" href="../styles/main.css")
     script(type="text/javascript", src="../js/require.js", data-main="../js/modifyItem")
-    script(src="../jquery/dist/jquery.js")
-    script(src="../semantic-ui/dist/semantic.js")
-  body
-    .container
-      .segment
-        .row
-          .sixteen.wide.column
-            .ui.inverted.teal.menu
-              .left.menu
+
+  body#home
+    header
+      h5#logo  欢迎光临来此购网上购物商城
+    div.container
+      div.ui.masthead.inverted.segment
+        div.row
+          div.sixteen.wide.column
+            div.ui.inverted.teal.menu
+              div.left.menu
                 a.ui.item LetUsGo
-                a#homeLink.ui.link.item 主页
+                a#homeLink.ui.item 主页
                   i.home.icon
-                a.ui.link.item 商城
-                a.ui.link.item.active 商城管理
-              .right.menu
-                a.ui.link.item 购物车
+                a.ui.item 商城
+                a.ui.item 商城管理
+              div.right.menu
+                a.ui.item 购物车
                   i.cart.in.icon
-    .ui.negative.message(id="emptyError")
-      i.close.icon
-      .header 请输入修改信息
-    .ui.form.segment
-      .ui.grid
-        .eight.wide.column
-          label 商品名称
-            input(id="itemName", placeholder='商品名称', type='text', value='#{item.name}')
-        .eight.wide.column
-        .eight.wide.column
-          label 商品单位
-            input(id="itemUnit", placeholder='商品单位', type='text', value='#{item.unit}')
-        .eight.wide.column
-        .eight.wide.column
-          label 商品单价
-            input(id="itemPrice", placeholder='商品单价', type='text', value='#{item.price}')
-      a.ui.green.submit.button(id="#{item.id}", class='save') 保存
 
-
+      div.ui.grid(class="ui grid")
+        div.eight.wide.centered.column
+          .ui.negative.message#emptyError(style='display: none')
+            i.close.icon
+            .header 请输入修改信息
+          .ui.negative.message#priceError(style='display: none')
+            i.close.icon
+            .header 请输入正确的单价格式
+          .ui.form.red.segment
+            .ui.grid
+              .eight.wide.centered.column
+                label 商品名称:
+                  div.ui.input.error
+                    input#itemName(placeholder='请输入商品名称', type='text', value='#{item.name}')
+              .eight.wide.centered.column
+              .eight.wide.centered.column
+                label 商品单位:
+                  div.ui.input.error
+                    input#itemUnit(placeholder='请输入商品单位', type='text', value='#{item.unit}')
+              .eight.wide.centered.column
+              .eight.wide.centered.column
+                label 商品单价:
+                  div.ui.input.error
+                    input#itemPrice(placeholder='请输入商品单价', type='text', value='#{item.price}')
+              .three.wide.centered.column
+                a.ui.green.submit.button.save(id="#{item.id}") 保存
