@@ -22,7 +22,7 @@ html
             th.three.wide 价格
             th.three.wide 数量
           tbody.center
-            -each cartItem in cartItems
+            - each cartItem in cartItems
               tr
                 td #{cartItem.itemId.name}
                 td #{cartItem.itemId.unit}
