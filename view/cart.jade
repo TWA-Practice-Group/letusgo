@@ -5,9 +5,9 @@ html
     title= pageName
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width")
-    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
-    script(src="jquery/dist/jquery.js")
-    script(src="semantic-ui/dist/semantic.js")
+    link(rel="stylesheet" type="text/css" href="../semantic-ui/dist/semantic.css")
+    script(src="../jquery/dist/jquery.js")
+    script(src="../semantic-ui/dist/semantic.js")
   body
     .ui.masthead
       include ./viewModule/navBar.jade
@@ -22,9 +22,9 @@ html
             th.three.wide 价格
             th.three.wide 数量
           tbody.center
-            //-each cartGood in cart
-            //tr
-            //    td #{cartGood.name}
-            //    td #{cartGood.unit}
-            //    td #{cartGood.price}元
-            //    td #{cartGood.num}
+            -each cartItem in cartItems
+              tr
+                td #{cartItem.itemId.name}
+                td #{cartItem.itemId.unit}
+                td #{cartItem.itemId.price}元
+                td #{cartItem.number}
