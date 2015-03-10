@@ -12,9 +12,6 @@ require(['jquery', 'semantic'], function ($) {
 
   $(document).ready(function () {
 
-    $('#emptyError').hide();
-    $('#priceError').hide();
-
     $('a#save').on('click', verifyInfo);
 
     function verifyInfo() {
