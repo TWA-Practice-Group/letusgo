@@ -4,9 +4,9 @@ var router = express.Router();
 var cartSchema = require('../../model/cartSchema.js');
 
 router.get('/', function (req, res, next) {
-  cartSchema.find(function (err, cartGoods) {
+  cartSchema.find(function (err, cartItem) {
     if (err) return next(err);
-    res.render('cart', {cart: cartGoods});
+    res.render('cart', {cart: cartItem});
   });
 });
 

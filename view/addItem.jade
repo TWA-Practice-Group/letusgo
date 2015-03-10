@@ -1,15 +1,15 @@
-doctype html
+ddoctype html
 html(lang="en")
   head
     - var name = '来此购网上购物商城'
     title= name
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width")
-    link(rel="stylesheet" type="text/css" href="../semantic-ui/dist/semantic.css")
-    link(rel="stylesheet" type="text/css" href="../styles/main.css")
-    script(type="text/javascript", src="../js/require.js", data-main="../js/modifyGoods")
-    script(src="../jquery/dist/jquery.js")
-    script(src="../semantic-ui/dist/semantic.js")
+
+    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
+    link(rel="stylesheet" type="text/css" href="styles/main.css")
+
+    script(type="text/javascript", src="js/require.js", data-main="js/addItem")
   body
     .container
       .segment
@@ -18,29 +18,33 @@ html(lang="en")
             .ui.inverted.teal.menu
               .left.menu
                 a.ui.item LetUsGo
-                a#homeLink.ui.link.item 主页
+                a.ui.link.item 主页
                   i.home.icon
                 a.ui.link.item 商城
                 a.ui.link.item.active 商城管理
               .right.menu
                 a.ui.link.item 购物车
                   i.cart.in.icon
-    .ui.negative.message(id="emptyError")
+
+    .ui.negative.message#emptyError
       i.close.icon
-      .header 请输入修改信息
+      .header 请输入完整信息
+    .ui.negative.message#priceError
+      i.close.icon
+      .header 请输入正确的单价格式
     .ui.form.segment
       .ui.grid
         .eight.wide.column
           label 商品名称
-            input(id="goodName", placeholder='商品名称', type='text', value='#{good.name}')
+            input(id="itemName", placeholder='商品名称', type='text')
         .eight.wide.column
         .eight.wide.column
           label 商品单位
-            input(id="goodUnit", placeholder='商品单位', type='text', value='#{good.unit}')
+            input(id="itemUnit", placeholder='商品单位', type='text')
         .eight.wide.column
         .eight.wide.column
           label 商品单价
-            input(id="goodPrice", placeholder='商品单价', type='text', value='#{good.price}')
-      a.ui.green.submit.button(id="#{good.id}", class='save') 保存
-
+            input(id="itemPrice", placeholder='商品单价', type='text')
+      a.ui.blue.submit.button(id="cancel", href="/shopManagement") 关闭
+      a.ui.green.submit.button(id="save") 保存
 

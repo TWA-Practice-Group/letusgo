@@ -15,7 +15,7 @@ require(['jquery', 'semantic'], function ($) {
       var id = this.id;
 
       $.ajax({
-        url: '/api/cartGoods/',
+        url: '/api/cartItem/',
         type: 'POST',
         data: {id: id},
         success: function (result) {

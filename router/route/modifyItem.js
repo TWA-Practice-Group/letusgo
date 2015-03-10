@@ -1,17 +1,17 @@
 var express = require('express');
 var router = express.Router();
 
-var goodModel = require('../../model/goodsSchema.js');
+var itemModel = require('../../model/ItemSchema.js');
 
 router.get('/:id', function (req, res, next) {
 
   var id = req.params.id;
 
-  goodModel.findById(id, function (err, goods) {
+  itemModel.findById(id, function (err, item) {
     if(err) return next(err);
-    res.render('modifyGoods', {good:goods});
+    res.render('modifyItem', {item:item});
   })
-  
+
 });
 
 module.exports = router;
