@@ -7,7 +7,7 @@ require.config({
   }
 });
 
-require(['jquery', 'semantic'], function ($) {
+require(['jquery', 'semantic'], function ($, semantic) {
 
   $(document).ready(function () {
 
