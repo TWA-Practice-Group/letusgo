@@ -14,7 +14,18 @@ html(lang="en")
       h5#logo  欢迎光临来此购网上购物商城
     div.container
       div.ui.masthead.inverted.segment
-        include ./viewModule/navBar.jade
+        div.row
+          div.sixteen.wide.column
+            div.ui.inverted.teal.menu
+              div.left.menu
+                a.ui.item LetUsGo
+                a#homeLink.ui.link.item(href="/") 主页
+                  i.home.icon
+                a.ui.link.item(href="shop") 商城
+                a.ui.link.active.item(href="shopManagement") 商城管理
+              div.right.menu
+                a.ui.link.item(href="cart") 购物车
+                  i.cart.in.icon
       div.ui.grid
         div.ten.wide.centered.column
           h1 LetUsGo商品管理列表
