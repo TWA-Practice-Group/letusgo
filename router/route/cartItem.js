@@ -19,7 +19,7 @@ router.get('/', function (req, res) {
   //});
 });
 
-router.post('/', function (req, res) {
+router.post('/', function (req) {
   var id = req.body.id;
   Cart.create({itemId: id, number: 1});
 });
