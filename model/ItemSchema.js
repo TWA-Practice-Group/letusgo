@@ -39,6 +39,15 @@ function itemHasexisted(name, unit, price) {
     }
   });
 }
+
+itemModel.updateItem = function (id, name, unit, price, callback) {
+  itemModel.update({_id: id}, {$set:
+  {name: name,
+   unit: unit,
+   price: price}
+  }, callback)
+};
+
 module.exports = itemModel;
 
 
