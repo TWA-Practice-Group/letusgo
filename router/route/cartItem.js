@@ -2,21 +2,14 @@ var express = require('express');
 var router = express.Router();
 
 var Cart = require('../../model/cartSchema');
+var Item = require('../../model/ItemSchema');
 router.get('/', function (req, res) {
 
-  Cart.find({})
+  Cart.find()
     .populate('itemId', 'name unit price', null)
     .exec(function(err, cartItem) {
-      console.log(cartItem[0]);
-      console.log(cartItem[0].itemId.name); // post-by-aikin
-      res.send(cartItem[0].itemId.name);
+      res.render('cart',{cartItems:cartItem});
     });
-
-  //Cart.find(function (err, cart) {
-  //
-  //  if (err) return next(err);
-  //  res.send(cart);
-  //});
 });
 
 router.post('/', function (req) {
