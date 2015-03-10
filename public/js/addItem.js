@@ -18,9 +18,9 @@ require(['jquery', 'semantic'], function ($) {
     $('a#save').on('click', verifyInfo);
 
     function verifyInfo() {
-      var unit = $('input#goodUnit').val();
-      var price = $('input#goodPrice').val();
-      var name = $('input#goodName').val();
+      var unit = $('input#itemUnit').val();
+      var price = $('input#itemPrice').val();
+      var name = $('input#itemName').val();
 
       var isIntergrated = name && unit && price;
 
@@ -44,11 +44,11 @@ require(['jquery', 'semantic'], function ($) {
       } else {
 
         $('#priceError').hide();
-        saveNewGood(name, unit, price);
+        saveNewItem(name, unit, price);
       }
     }
 
-    function saveNewGood(name, unit, price) {
+    function saveNewItem(name, unit, price) {
 
       $.post('/api/item', {name: name, unit: unit, price: price})
         .success(function () {

@@ -2,44 +2,44 @@
 var _ = require('lodash');
 var mongoose = require('mongoose');
 
-var goodsSchema = new mongoose.Schema({
+var itemSchema = new mongoose.Schema({
 
   name: String,
   unit: String,
   price: Number
 });
 
-var goodsModel = mongoose.model('goods', goodsSchema);
+var itemModel = mongoose.model('item', itemSchema);
 
-goodsModel.postGood = function (name, unit, price) {
+itemModel.postItem = function (name, unit, price) {
 
-  goodHasexisted(name, unit, price);
+  itemHasexisted(name, unit, price);
 };
 
-function addNewGood(name, unit, price) {
+function addNewItem(name, unit, price) {
 
-  goodsModel.create({
+  itemModel.create({
     name: name,
     price: price,
     unit: unit
   });
 }
 
-function goodHasexisted(name, unit, price) {
+function itemHasexisted(name, unit, price) {
 
-  goodsModel.find(function (err, goods) {
+  itemModel.find(function (err, items) {
     if (err) return next(err);
 
-    var goodindex = _.findIndex(goods, function (eachGood) {
-      return eachGood.name == name;
+    var itemIndex = _.findIndex(items, function (eachItem) {
+      return eachItem.name == name;
     });
 
-    if (goodindex === -1) {
-      addNewGood(name, unit, price);
+    if (itemIndex === -1) {
+      addNewItem(name, unit, price);
     }
   });
 }
-module.exports = goodsModel;
+module.exports = itemModel;
 
 
 

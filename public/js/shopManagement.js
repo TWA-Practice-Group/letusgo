@@ -11,7 +11,7 @@ require(['semantic', 'jquery'], function (semantic, $) {
 
   $(document).ready(function () {
 
-    $('.deleteGoods').on('click', function () {
+    $('.deleteItem').on('click', function () {
 
       var id = this.closest('td').id;
 
@@ -30,7 +30,7 @@ require(['semantic', 'jquery'], function (semantic, $) {
       });
     });
 
-    $('.modifyGoods').on('click', function () {
+    $('.modifyItem').on('click', function () {
       var id = this.closest('td').id;
       $(location).attr('href', '/modifyItem/' + id);
     })

@@ -30,12 +30,12 @@ html(lang="en")
                 th 单价
                 th
                 th
-            tbody#goods
-              - each good in goods
+            tbody#items
+              - each item in items
                 tr
-                  td #{good.name}
-                  td #{good.unit}
-                  td #{good.price}元
-                  td(id="#{good._id}")
-                    div.ui.inverted.purple.button.modifyGoods 修改
-                    div.ui.inverted.blue.button.deleteGoods 删除
+                  td #{item.name}
+                  td #{item.unit}
+                  td #{item.price}元
+                  td(id="#{item._id}")
+                    div.ui.inverted.purple.button.modifyItem 修改
+                    div.ui.inverted.blue.button.deleteItem 删除

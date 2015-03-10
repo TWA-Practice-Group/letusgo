@@ -18,9 +18,9 @@ require(['semantic', 'jquery'], function (semantic, $) {
 
     function verifyInfo() {
       var id = this.id;
-      var name = $('input#goodName').val();
-      var unit = $('input#goodUnit').val();
-      var price = $('input#goodPrice').val();
+      var name = $('input#itemName').val();
+      var unit = $('input#itemUnit').val();
+      var price = $('input#itemPrice').val();
 
       var isIntergrated = name && unit && price;
 
@@ -44,11 +44,11 @@ require(['semantic', 'jquery'], function (semantic, $) {
       } else {
 
         $('#priceError').hide();
-        updateGoods(id, name, unit, price);
+        updateItem(id, name, unit, price);
       }
     }
 
-    function updateGoods(id, name, unit, price) {
+    function updateItem(id, name, unit, price) {
       $.post('/api/item/'+id, {_id: id, name: name, unit: unit, price: price})
         .success(function () {
           $(location).attr('href', '/shopManagement')

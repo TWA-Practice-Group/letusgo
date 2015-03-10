@@ -1,11 +1,11 @@
 'use strict';
 var mongoose = require('mongoose');
-var Goods = require('./ItemSchema');
+var Item = require('./ItemSchema');
 
 var cartSchema = new mongoose.Schema({
-  goodsId: {
+  itemId: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Goods'
+    ref: 'Item'
   },
   number: Number
 });

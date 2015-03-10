@@ -26,11 +26,11 @@ html
             th.three.wide 价格
             th.three.wide 操作
           tbody.center
-            -each good in goods
+            -each item in items
               tr
-                td #{good.name}
-                td #{good.unit}
-                td #{good.price}元
+                td #{item.name}
+                td #{item.unit}
+                td #{item.price}元
                 td
-                  button(id='#{good.id}' class = "ui green button buy") 购买
+                  button(id='#{item.id}' class = "ui green button buy") 购买
 
