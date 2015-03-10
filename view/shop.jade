@@ -21,12 +21,12 @@ html
         table.ui.large.table
           thead
             tr
-            th.four.wide 名称
-            th.three.wide 单位
-            th.three.wide 价格
-            th.three.wide 操作
+              th.four.wide 名称
+              th.three.wide 单位
+              th.three.wide 价格
+              th.three.wide 操作
           tbody.center
-            -each item in items
+            - each item in items
               tr
                 td #{item.name}
                 td #{item.unit}
