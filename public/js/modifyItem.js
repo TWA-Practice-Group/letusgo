@@ -1,26 +1,26 @@
 'use strict';
-
 require.config({
-  baseUrl: './',
+  baseUrl: '../',
   paths: {
     'jquery': './jquery/dist/jquery',
-    'semantic': './semantic-ui/dist/semantic'
+    'semantic': './semantic-ui/dist/semantic',
   }
 });
 
-require(['jquery', 'semantic'], function ($) {
+require(['semantic', 'jquery'], function (semantic, $) {
 
   $(document).ready(function () {
 
     $('#emptyError').hide();
     $('#priceError').hide();
 
-    $('a#save').on('click', verifyInfo);
+    $('.save').on('click', verifyInfo);
 
     function verifyInfo() {
+      var id = this.id;
+      var name = $('input#goodName').val();
       var unit = $('input#goodUnit').val();
       var price = $('input#goodPrice').val();
-      var name = $('input#goodName').val();
 
       var isIntergrated = name && unit && price;
 
@@ -28,11 +28,11 @@ require(['jquery', 'semantic'], function ($) {
         $('#emptyError').show();
       } else {
         $('#emptyError').hide();
-        priceIsNumber(name, unit, price);
+        priceIsNumber(id, name, unit, price);
       }
     }
 
-    function priceIsNumber(name, unit, price) {
+    function priceIsNumber(id, name, unit, price) {
 
       var reg = /^\d+(\.\d+)?$/;
 
@@ -44,13 +44,12 @@ require(['jquery', 'semantic'], function ($) {
       } else {
 
         $('#priceError').hide();
-        saveNewGood(name, unit, price);
+        updateGoods(id, name, unit, price);
       }
     }
 
-    function saveNewGood(name, unit, price) {
-
-      $.post('/api/goods', {name: name, unit: unit, price: price})
+    function updateGoods(id, name, unit, price) {
+      $.post('/api/item/'+id, {_id: id, name: name, unit: unit, price: price})
         .success(function () {
           $(location).attr('href', '/shopManagement')
         });
@@ -58,3 +57,4 @@ require(['jquery', 'semantic'], function ($) {
 
   });
 });
+

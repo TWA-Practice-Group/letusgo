@@ -1,6 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
-var Goods = require('./goodsSchema');
+var Goods = require('./ItemSchema');
 
 var cartSchema = new mongoose.Schema({
   goodsId: {

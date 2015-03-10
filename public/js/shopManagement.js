@@ -18,7 +18,7 @@ require(['semantic', 'jquery'], function (semantic, $) {
       var $this = $(this);
       $.ajax({
 
-        url: '/api/goods/' + id,
+        url: '/api/item/' + id,
         type: 'DELETE',
         success: function (data) {
 
@@ -32,7 +32,7 @@ require(['semantic', 'jquery'], function (semantic, $) {
 
     $('.modifyGoods').on('click', function () {
       var id = this.closest('td').id;
-      $(location).attr('href', '/modifyGoods/' + id);
+      $(location).attr('href', '/modifyItem/' + id);
     })
   });
 });
