@@ -3,14 +3,14 @@ var router = express.Router();
 
 var Cart = require('../../model/cartSchema');
 router.get('/', function (req, res) {
-  //
-  //Cart.find()
-  //  .populate('goodsId', 'name unit price', null)
-  //  .exec(function(err, docs) {
-  //    console.log('099999999');
-  //    console.log(docs[0].goodsId.name); // post-by-aikin
-  //    res.send(docs[0].goodsId.name);
-  //  });
+
+  Cart.find({})
+    .populate('itemId', 'name unit price', null)
+    .exec(function(err, cartItem) {
+      console.log(cartItem[0]);
+      console.log(cartItem[0].itemId.name); // post-by-aikin
+      res.send(cartItem[0].itemId.name);
+    });
 
   //Cart.find(function (err, cart) {
   //
