@@ -1,4 +1,4 @@
-ddoctype html
+doctype html
 html(lang="en")
   head
     - var name = '来此购网上购物商城'
@@ -45,6 +45,6 @@ html(lang="en")
         .eight.wide.column
           label 商品单价
             input(id="itemPrice", placeholder='商品单价', type='text')
-      a.ui.blue.submit.button(id="cancel", href="/shopManagement") 关闭
-      a.ui.green.submit.button(id="save") 保存
+      a.ui.blue.submit.button#cancel(href="/shopManagement") 关闭
+      a.ui.green.submit.button#save 保存
 
