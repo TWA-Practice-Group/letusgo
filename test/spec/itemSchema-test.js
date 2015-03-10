@@ -17,11 +17,10 @@ describe('ItemSchema', function() {
   describe('postItem', function() {
 
     it('should add new item to mongodb', function () {
-      var spy = sinon.spy(ItemModel, 'postItem');
+      var postItem = sinon.spy(ItemModel, 'postItem');
 
       ItemModel.postItem('apple', 'kg', 10.0);
-      //assert(spy.calledWith('apple', 'kg', 10.0));
-      expect(spy).to.have.been.calledWith('apple', 'kg', 10.0);
+      expect(postItem).to.have.been.calledWith('apple', 'kg', 10.0);
     })
   });
 
