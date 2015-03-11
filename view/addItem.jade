@@ -1,4 +1,4 @@
-ddoctype html
+doctype html
 html(lang="en")
   head
     - var name = '来此购网上购物商城'
@@ -29,22 +29,22 @@ html(lang="en")
     .ui.negative.message#emptyError(style='display: none')
       i.close.icon
       .header 请输入完整信息
-    .ui.negative.message#priceError(style='display: none')
+    .ui.negative.message#inputError(style='display: none')
       i.close.icon
-      .header 请输入正确的单价格式
+      .header 请按照正确格式输入
     .ui.form.segment
       .ui.grid
         .eight.wide.column
           label 商品名称
-            input(id="itemName", placeholder='商品名称', type='text')
+            input#itemName(placeholder='商品名称', type='text', style="border: grey 1px solid")
         .eight.wide.column
         .eight.wide.column
           label 商品单位
-            input(id="itemUnit", placeholder='商品单位', type='text')
+            input#itemUnit(placeholder='商品单位', type='text', style="border: grey 1px solid")
         .eight.wide.column
         .eight.wide.column
           label 商品单价
-            input(id="itemPrice", placeholder='商品单价', type='text')
-      a.ui.blue.submit.button(id="cancel", href="/shopManagement") 关闭
-      a.ui.green.submit.button(id="save") 保存
+            input#itemPrice(placeholder='商品单价', type='text', style="border: grey 1px solid")
+      a.ui.blue.submit.button#cancel(href="/shopManagement") 关闭
+      a.ui.green.submit.button#save 保存
 
