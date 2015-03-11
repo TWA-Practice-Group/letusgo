@@ -8,22 +8,50 @@ chai.use(sinonChai);
 
 describe('ItemSchema', function() {
 
-  var ItemModel;
+  var ItemModel, mongoose, items;
 
   beforeEach(function() {
     ItemModel = require('../../model/itemSchema.js');
+    mongoose = require('mongoose');
+    items = [{name: 'apple', unit: 'kg', price: 10.0},
+             {name: 'pear', unit: 'kg', price: 19.0}
+    ]
   });
 
-  describe('postItem', function() {
+  //describe('postItem', function() {
+  //
+  //  it('should add new item to mongodb', function () {
+  //    var postItem = sinon.spy(ItemModel, 'postItem');
+  //
+  //    var callback = function() {
+  //      return items;
+  //    };
+  //    var stub = sinon.stub(ItemModel, 'find', callback);
+  //
+  //    ItemModel.postItem('apple', 'kg', 10.0);
+  //
+  //    expect(postItem).to.have.been.calledWith('apple', 'kg', 10.0);
+  //    stub();
+  //  });
+  //});
+
+  describe('', function () {
 
     it('should add new item to mongodb', function () {
       var postItem = sinon.spy(ItemModel, 'postItem');
-      //var find = sinon.spy(ItemModel, 'find');
 
-      ItemModel.postItem('apple', 'kg', 10.0);
-      //assert(spy.calledWith('apple', 'kg', 10.0));
-      expect(postItem).to.have.been.calledWith('apple', 'kg', 10.0);
-      //expect(find).to.have.been.called();
+      var callback = function() {
+        return items;
+      };
+      var find = sinon.stub(ItemModel, 'find', callback);
+
+      ItemModel.postItem('耳机', '副', 90.0);
+
+      expect(postItem).to.have.been.calledWith('耳机', '副', 90.0);
+      find();
+
+      var create = sinon.stub(ItemModel, 'create');
+      create.withArgs('耳机', '副', 90.0);
     })
   });
 
