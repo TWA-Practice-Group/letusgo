@@ -1,41 +1,32 @@
-doctype html
-html
-  head
-    -var pageName= "商品列表"
-    title= pageName
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width")
-
-    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
-
-    script(src="jquery/dist/jquery.js")
-    script(src="semantic-ui/dist/semantic.js")
-    script(src="js/require.js" data-main="js/shop")
-  body
-
-    .ui.masthead
-      include ./viewModule/navBar.jade
-    .ui.grid.centered
-      h1 商品列表
-      .thirteen.wide.column
-        table.ui.large.table
-          thead
-            tr
-            th.four.wide 名称
-            th.three.wide 单位
-            th.three.wide 价格
-            th.three.wide 操作
-          tbody.center
-            -each item in items
+extends ./viewModule/navBar.jade
+block title
+  title 来此购网上购物商城
+  script(src="js/require.js" data-main="js/shop")
+block shop
+  a.ui.link.active.item(href="shop") 商城
+block content
+      .ui.grid.centered
+        .ten.wide.column.centered
+          h1 商品列表
+        .eight.wide.centered.column
+          table.ui.large.table
+            thead
               tr
-                td #{item.name}
-                td #{item.unit}
-                td #{item.price}元
-                td
-                  button(id='#{item.id}' class = "ui green button buy") 购买
+              th.four.wide 名称
+              th.two.wide 单位
+              th.two.wide 价格
+              th.two.wide 操作
+            tbody.center
+              -each item in items
+                tr
+                  td #{item.name}
+                  td #{item.unit}
+                  td #{item.price}元
+                  td
+                    button(id='#{item.id}' class = "ui green button buy") 购买
 
-        a.ui.red.right.floated.right.labeled.icon.button(href='/cart') 去购物车
-          i.right.arrow.icon
+          a.ui.red.right.floated.right.labeled.icon.button(href='/cart') 去购物车
+            i.right.arrow.icon
 
 
 
