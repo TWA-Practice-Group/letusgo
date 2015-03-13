@@ -21,7 +21,7 @@ require(['jquery', 'semantic'], function ($) {
       var price = $('input#itemPrice').val();
       var name = $('input#itemName').val();
 
-      if(verifyInfo(name, unit, price)){
+      if(infoIsVerfied(name, unit, price)){
 
         saveNewItem(name, unit, price);
       }
@@ -40,7 +40,7 @@ require(['jquery', 'semantic'], function ($) {
       $('#inputError').hide();
     }
 
-    function verifyInfo(name, unit, price) {
+    function infoIsVerfied(name, unit, price) {
 
       if (!inputsIsIntergrated(name, unit, price)) {
 
