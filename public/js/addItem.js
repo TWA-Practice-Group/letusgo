@@ -57,16 +57,17 @@ require(['jquery', 'semantic'], function ($) {
 
     function inputsIsRight(name, unit, price){
       if(!inputIsword(name)){
-        //$('#itemName').attr('style', 'border：red 1px solid');
-        document.getElementById('itemName').style.border = 'red 1px solid';
+        $('#itemName').css('border',"red 1px solid");
       }
 
       if(!inputIsword(unit)){
-        document.getElementById('itemUnit').style.border = 'red 1px solid';
+
+        $('#itemUnit').css('border',"red 1px solid");
       }
 
       if(!priceIsNumber(price)){
-        document.getElementById('itemPrice').style.border = 'red 1px solid';
+
+        $('#itemPrice').css('border',"red 1px solid");
       }
 
       var inputsIsRight = inputIsword(name) && inputIsword(unit) && priceIsNumber(price);
