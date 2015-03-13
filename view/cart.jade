@@ -1,16 +1,11 @@
-doctype html
-html
-  head
-    -var pageName= "商品列表"
-    title= pageName
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width")
-    link(rel="stylesheet" type="text/css" href="../semantic-ui/dist/semantic.css")
-    script(src="../jquery/dist/jquery.js")
-    script(src="../semantic-ui/dist/semantic.js")
-  body
+extends ./viewModule/navBar.jade
+block title
+  title= pageName
+block cart
+  a.ui.link.active.item(href="cart") 购物车
+    i.cart.in.icon
+block content
     .ui.masthead
-      include ./viewModule/navBar.jade
     .ui.grid.centered
       h1 购物车列表
       .thirteen.wide.column
