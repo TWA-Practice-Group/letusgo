@@ -28,11 +28,13 @@ require(['jquery', 'semantic'], function ($) {
     }
 
     function initErrorBox(){
-      document.getElementById('emptyError').style.display = 'none';
-      document.getElementById('inputError').style.display = 'none';
+
+      $('#emptyError').hide();
+      $('#inputError').hide();
     }
 
     function verifyInfo() {
+
       var unit = $('input#itemUnit').val();
       var price = $('input#itemPrice').val();
       var name = $('input#itemName').val();
@@ -40,7 +42,7 @@ require(['jquery', 'semantic'], function ($) {
       var isIntergrated = name && unit && price;
 
       if (!isIntergrated) {
-        document.getElementById('emptyError').style.display = 'block';
+        $('#emptyError').show();
 
       } else {
 
@@ -48,14 +50,14 @@ require(['jquery', 'semantic'], function ($) {
 
           saveNewItem(name, unit, price);
         }else{
-
-          document.getElementById('inputError').style.display = 'block';
+          $('#inputError').show();
         }
       }
     }
 
     function inputsIsRight(name, unit, price){
       if(!inputIsword(name)){
+        //$('#itemName').attr('style', 'border：red 1px solid');
         document.getElementById('itemName').style.border = 'red 1px solid';
       }
 
