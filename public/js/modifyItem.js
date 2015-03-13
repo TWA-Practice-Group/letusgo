@@ -23,27 +23,51 @@ require(['semantic', 'jquery'], function (semantic, $) {
 
       if (!isIntergrated) {
         $('#emptyError').show();
+        $('#itemName').css('border', 'red 1px solid');
+        $('#itemUnit').css('border', 'red 1px solid');
+        $('#itemPrice').css('border', 'red 1px solid');
       } else {
-        $('#emptyError').hide();
-        priceIsNumber(id, name, unit, price);
+        if(inputsIsRight(name, unit, price)){
+
+          updateItem(id, name, unit, price);
+
+        }else{
+
+          $('#inputError').show();
+        }
       }
     }
 
-    function priceIsNumber(id, name, unit, price) {
+    function inputsIsRight(name, unit, price){
+      if(!inputIsword(name)){
+        $('#itemName').css('border', 'red 1px solid');
+      }
+
+      if(!inputIsword(unit)){
+        $('#itemUnit').css('border', 'red 1px solid');
+      }
+
+      if(!priceIsNumber(price)){
+        $('#itemPrice').css('border', 'red 1px solid');
+      }
+
+      var inputsIsRight = inputIsword(name) && inputIsword(unit) && priceIsNumber(price);
+
+      return inputsIsRight;
+    }
+
+    function inputIsword(word){
+
+      var reg = /^\s/;
+      return !reg.exec(word);
+    }
+
+    function priceIsNumber(price){
 
       var reg = /^\d+(\.\d+)?$/;
-
-      var priceIsNumber = reg.exec(price);
-
-      if (!priceIsNumber) {
-
-        $('#priceError').show();
-      } else {
-
-        $('#priceError').hide();
-        updateItem(id, name, unit, price);
-      }
+      return reg.exec(price);
     }
+
 
     function updateItem(id, name, unit, price) {
 
