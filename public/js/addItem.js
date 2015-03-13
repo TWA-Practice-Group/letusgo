@@ -12,7 +12,7 @@ require(['jquery', 'semantic'], function ($) {
 
   $(document).ready(function () {
 
-    $('a#save').on('click', function(){
+    $('a#save').on('click', function () {
 
       initBorder();
       initErrorBox();
@@ -20,14 +20,14 @@ require(['jquery', 'semantic'], function ($) {
       verifyInfo();
     });
 
-    function initBorder(){
+    function initBorder() {
 
-      $('#itemName').css('border',"grey 1px solid");
-      $('#itemUnit').css('border',"grey 1px solid");
-      $('#itemPrice').css('border',"grey 1px solid");
+      $('#itemName').css('border', "grey 1px solid");
+      $('#itemUnit').css('border', "grey 1px solid");
+      $('#itemPrice').css('border', "grey 1px solid");
     }
 
-    function initErrorBox(){
+    function initErrorBox() {
 
       $('#emptyError').hide();
       $('#inputError').hide();
@@ -44,60 +44,59 @@ require(['jquery', 'semantic'], function ($) {
         $('#emptyError').show();
       } else {
 
-        if(inputsIsRight(name, unit, price)){
+        if (inputsIsRight(name, unit, price)) {
 
           saveNewItem(name, unit, price);
-        }else{
+        } else {
 
           $('#inputError').show();
         }
       }
     }
 
-    function inputsIsIntergrated(name, unit, price){
+    function inputsIsIntergrated(name, unit, price) {
 
-      if(!name){
+      if (!name) {
 
-        $('#itemName').css('border',"red 1px solid");
+        $('#itemName').css('border', "red 1px solid");
       }
-      if(!unit){
+      if (!unit) {
 
-        $('#itemUnit').css('border',"red 1px solid");
+        $('#itemUnit').css('border', "red 1px solid");
       }
-      if(!price){
+      if (!price) {
 
-        $('#itemPrice').css('border',"red 1px solid");
+        $('#itemPrice').css('border', "red 1px solid");
       }
-       return name && unit && price;
+      return name && unit && price;
     }
 
-    function inputsIsRight(name, unit, price){
+    function inputsIsRight(name, unit, price) {
 
-      if(!inputIsWord(name)){
-        $('#itemName').css('border',"red 1px solid");
+      if (!inputIsWord(name)) {
+        $('#itemName').css('border', "red 1px solid");
       }
 
-      if(!inputIsWord(unit)){
+      if (!inputIsWord(unit)) {
 
-        $('#itemUnit').css('border',"red 1px solid");
+        $('#itemUnit').css('border', "red 1px solid");
       }
 
-      if(!priceIsNumber(price)){
+      if (!priceIsNumber(price)) {
 
-        $('#itemPrice').css('border',"red 1px solid");
+        $('#itemPrice').css('border', "red 1px solid");
       }
 
       return inputIsWord(name) && inputIsWord(unit) && priceIsNumber(price);
     }
 
-    function inputIsWord(word){
+    function inputIsWord(word) {
 
       var trimedWord = word.trim();
-
       return trimedWord.length > 0;
     }
 
-    function priceIsNumber(price){
+    function priceIsNumber(price) {
 
       var reg = /^\d+(\.\d+)?$/;
       return reg.exec(price);
