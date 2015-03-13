@@ -1,19 +1,10 @@
-doctype html
-html(lang="en")
-  head
-    - var name = '来此购网上购物商城'
-    title= name
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width")
-    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
-    link(rel="stylesheet" type="text/css" href="styles/main.css")
-
-    script(src="jquery/dist/jquery.js")
-    script(src="semantic-ui/dist/semantic.js")
-  body#home
-
-
-        include ./viewModule/navBar.jade
+extends ./viewModule/navBar.jade
+block title
+  title 来此购网上购物商城
+block home
+  a#homeLink.ui.link.item.active(href="/") 主页
+block content
+      div.ui.inverted.masthead.segment
         div.ui.page.grid
           div.row
             div.four.wide.column
