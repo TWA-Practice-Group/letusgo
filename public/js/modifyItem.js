@@ -46,10 +46,19 @@ require(['semantic', 'jquery'], function (semantic, $) {
     }
 
     function updateItem(id, name, unit, price) {
-      $.post('/api/item/'+id, {_id: id, name: name, unit: unit, price: price})
-        .success(function () {
-          $(location).attr('href', '/shopManagement')
-        });
+
+      $.ajax({
+
+        url: '/api/item/' + id,
+        type: 'PUT',
+        data: {_id: id, name: name, unit: unit, price: price},
+
+        success: function (data) {
+          if (200 == data.status) {
+                $(location).attr('href', '/shopManagement')
+          }
+        }
+      });
     }
 
   });
