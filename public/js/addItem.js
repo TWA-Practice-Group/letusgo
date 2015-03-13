@@ -22,9 +22,9 @@ require(['jquery', 'semantic'], function ($) {
 
     function initBorder(){
 
-      document.getElementById('itemName').style.border = 'grey 1px solid';
-      document.getElementById('itemUnit').style.border = 'grey 1px solid';
-      document.getElementById('itemPrice').style.border = 'grey 1px solid';
+      $('#itemName').css('border',"grey 1px solid");
+      $('#itemUnit').css('border',"grey 1px solid");
+      $('#itemPrice').css('border',"grey 1px solid");
     }
 
     function initErrorBox(){
@@ -50,17 +50,19 @@ require(['jquery', 'semantic'], function ($) {
 
           saveNewItem(name, unit, price);
         }else{
+
           $('#inputError').show();
         }
       }
     }
 
     function inputsIsRight(name, unit, price){
-      if(!inputIsword(name)){
+
+      if(!inputIsWord(name)){
         $('#itemName').css('border',"red 1px solid");
       }
 
-      if(!inputIsword(unit)){
+      if(!inputIsWord(unit)){
 
         $('#itemUnit').css('border',"red 1px solid");
       }
@@ -70,15 +72,14 @@ require(['jquery', 'semantic'], function ($) {
         $('#itemPrice').css('border',"red 1px solid");
       }
 
-      var inputsIsRight = inputIsword(name) && inputIsword(unit) && priceIsNumber(price);
-
-      return inputsIsRight;
+      return inputIsWord(name) && inputIsWord(unit) && priceIsNumber(price);
     }
 
-    function inputIsword(word){
+    function inputIsWord(word){
 
-      var reg = /^\s/;
-      return !reg.exec(word);
+      var trimedWord = word.trim();
+
+      return trimedWord.length > 0;
     }
 
     function priceIsNumber(price){
@@ -89,11 +90,10 @@ require(['jquery', 'semantic'], function ($) {
 
     function saveNewItem(name, unit, price) {
 
-      $.post('/api/item', {name: name, unit: unit, price: price})
+      $.post('/api/item', {name: name.trimLeft(), unit: unit.trimLeft(), price: price.trimLeft()})
         .success(function () {
           $(location).attr('href', '/shopManagement')
         });
     }
-
   });
 });
