@@ -18,7 +18,8 @@ html
             div.ui.inverted.teal.menu
               div.left.menu
                 a.ui.item LetUsGo
-                a#homeLink.ui.link.item(href="/") 主页
+                block home
+                  a#homeLink.ui.link.item(href="/") 主页
                   i.home.icon
                 block shop
                   a.ui.link.item(href="shop") 商城
