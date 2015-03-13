@@ -1,41 +1,31 @@
-doctype html
-html(lang="en")
-  head
-    - var name = '来此购网上购物商城'
-    title= name
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width")
-    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
-    link(rel="stylesheet" type="text/css" href="styles/main.css")
-
-    script(src="js/require.js" data-main="js/shopManagement")
-  body#home
-    header
-      h5#logo  欢迎光临来此购网上购物商城
-    div.container
-      div.ui.masthead.inverted.segment
-        include ./viewModule/navBar.jade
-      div.ui.grid(class="ui grid")
-        div.ten.wide.centered.column
-          h1 LetUsGo商品管理列表
-        div.three.column.row
-          div.right.floated.column
-            a.ui.orange.button(href="addItem") 增加商品
-        div.eight.wide.centered.column
-          table.ui.large.table
-            thead
-              tr
-                th 名称
-                th 单位
-                th 单价
-                th
-                th
-            tbody#items
-              - each item in items
-                tr
-                  td #{item.name}
-                  td #{item.unit}
-                  td #{item.price}元
-                  td(id="#{item._id}")
-                    div.ui.inverted.purple.button.modifyItem 修改
-                    div.ui.inverted.blue.button.deleteItem 删除
+extends ./viewModule/navBar.jade
+block title
+  title 商品管理
+  script(src="js/require.js" data-main="js/shopManagement")
+block management
+  a.ui.link.item.active(href="shopManagement") 商城管理
+block content
+  div.ui.grid(class="ui grid")
+    div.ten.wide.centered.column
+      h1 LetUsGo商品管理列表
+    div.three.column.row
+      div.right.floated.column
+        a.ui.orange.button(href="addItem") 增加商品
+    div.eight.wide.centered.column
+      table.ui.large.table
+        thead
+          tr
+            th 名称
+            th 单位
+            th 单价
+            th
+            th
+        tbody#items
+          - each item in items
+            tr
+              td #{item.name}
+              td #{item.unit}
+              td #{item.price}元
+              td(id="#{item._id}")
+                div.ui.inverted.purple.button.modifyItem 修改
+                div.ui.inverted.blue.button.deleteItem 删除
