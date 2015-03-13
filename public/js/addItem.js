@@ -39,11 +39,9 @@ require(['jquery', 'semantic'], function ($) {
       var price = $('input#itemPrice').val();
       var name = $('input#itemName').val();
 
-      var isIntergrated = name && unit && price;
+      if (!inputsIsIntergrated(name, unit, price)) {
 
-      if (!isIntergrated) {
         $('#emptyError').show();
-
       } else {
 
         if(inputsIsRight(name, unit, price)){
@@ -54,6 +52,23 @@ require(['jquery', 'semantic'], function ($) {
           $('#inputError').show();
         }
       }
+    }
+
+    function inputsIsIntergrated(name, unit, price){
+
+      if(!name){
+
+        $('#itemName').css('border',"red 1px solid");
+      }
+      if(!unit){
+
+        $('#itemUnit').css('border',"red 1px solid");
+      }
+      if(!price){
+
+        $('#itemPrice').css('border',"red 1px solid");
+      }
+       return name && unit && price;
     }
 
     function inputsIsRight(name, unit, price){
