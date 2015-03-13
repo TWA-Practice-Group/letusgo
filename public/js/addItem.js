@@ -17,7 +17,14 @@ require(['jquery', 'semantic'], function ($) {
       initBorder();
       initErrorBox();
 
-      verifyInfo();
+      var unit = $('input#itemUnit').val();
+      var price = $('input#itemPrice').val();
+      var name = $('input#itemName').val();
+
+      if(verifyInfo(name, unit, price)){
+
+        saveNewItem(name, unit, price);
+      }
     });
 
     function initBorder() {
@@ -33,24 +40,21 @@ require(['jquery', 'semantic'], function ($) {
       $('#inputError').hide();
     }
 
-    function verifyInfo() {
-
-      var unit = $('input#itemUnit').val();
-      var price = $('input#itemPrice').val();
-      var name = $('input#itemName').val();
+    function verifyInfo(name, unit, price) {
 
       if (!inputsIsIntergrated(name, unit, price)) {
 
         $('#emptyError').show();
+        return false;
       } else {
 
-        if (inputsIsRight(name, unit, price)) {
-
-          saveNewItem(name, unit, price);
-        } else {
+        if (!inputsIsRight(name, unit, price)) {
 
           $('#inputError').show();
+          return false;
         }
+
+        return true;
       }
     }
 
