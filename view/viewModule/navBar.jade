@@ -3,14 +3,14 @@ html
   head
     meta(charset="utf-8")
     meta(name="viewport" content="width=device-width")
-    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
-    script(src="jquery/dist/jquery.js")
-    script(src="semantic-ui/dist/semantic.js")
+    block css
+      link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
+      script(src="jquery/dist/jquery.js")
+      script(src="semantic-ui/dist/semantic.js")
     block title
       title 首页
   body
-      header
-        h5#logo  欢迎光临来此购网上购物商城
+
       div.container
       div.ui.inverted.masthead.segment
         div.row
@@ -29,4 +29,4 @@ html
                 block cart
                   a.ui.link.item(href="cart") 购物车
                     i.cart.in.icon
-        block content
+      block content
