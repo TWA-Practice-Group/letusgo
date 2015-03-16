@@ -23,9 +23,6 @@ require(['semantic', 'jquery'], function (semantic, $) {
 
       if (!isIntergrated) {
         $('#emptyError').show();
-        $('#itemName').css('border', 'red 1px solid');
-        $('#itemUnit').css('border', 'red 1px solid');
-        $('#itemPrice').css('border', 'red 1px solid');
       } else {
         if(inputsIsRight(name, unit, price)){
 
