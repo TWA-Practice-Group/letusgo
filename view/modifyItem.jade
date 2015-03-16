@@ -1,32 +1,13 @@
-doctype html
-html(lang="en")
-  head
-    - var name = '来此购网上购物商城'
-    title= name
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width")
+extends ./viewModule/navBar.jade
+block css
     link(rel="stylesheet" type="text/css" href="../semantic-ui/dist/semantic.css")
     link(rel="stylesheet" type="text/css" href="../styles/main.css")
-    script(type="text/javascript", src="../js/require.js", data-main="../js/modifyItem")
-
-  body#home
-    header
-      h5#logo  欢迎光临来此购网上购物商城
-    div.container
-      div.ui.masthead.inverted.segment
-        div.row
-          div.sixteen.wide.column
-            div.ui.inverted.teal.menu
-              div.left.menu
-                a.ui.item LetUsGo
-                a#homeLink.ui.item 主页
-                  i.home.icon
-                a.ui.item 商城
-                a.ui.item 商城管理
-              div.right.menu
-                a.ui.item 购物车
-                  i.cart.in.icon
-
+    script(src="../js/require.js", data-main="../js/modifyItem")
+block shop
+  a.ui.link.item(href="../shop") 商城
+block management
+  a.ui.link.item.active(href="../shopManagement") 商城管理
+block content
       div.ui.grid(class="ui grid")
         div.eight.wide.centered.column
           .ui.negative.message#emptyError(style='display: none')
