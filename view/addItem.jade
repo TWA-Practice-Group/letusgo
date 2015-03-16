@@ -1,31 +1,10 @@
-doctype html
-html(lang="en")
-  head
-    - var name = '来此购网上购物商城'
-    title= name
-    meta(charset="utf-8")
-    meta(name="viewport" content="width=device-width")
-
-    link(rel="stylesheet" type="text/css" href="semantic-ui/dist/semantic.css")
-    link(rel="stylesheet" type="text/css" href="styles/main.css")
-
-    script(type="text/javascript", src="js/require.js", data-main="js/addItem")
-  body
-    .container
-      .segment
-        .row
-          .sixteen.wide.column
-            .ui.inverted.teal.menu
-              .left.menu
-                a.ui.item LetUsGo
-                a.ui.link.item 主页
-                  i.home.icon
-                a.ui.link.item 商城
-                a.ui.link.item.active 商城管理
-              .right.menu
-                a.ui.link.item 购物车
-                  i.cart.in.icon
-
+extends ./viewModule/navBar.jade
+block title
+  title 添加商品
+  script(src="js/require.js" data-main="js/addItem")
+block management
+  a.ui.link.item.active(href="shopManagement") 商城管理
+block content
     .ui.negative.message#emptyError(style='display: none')
       i.close.icon
       .header 请输入完整信息
