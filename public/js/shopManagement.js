@@ -13,22 +13,31 @@ require(['semantic', 'jquery'], function (semantic, $) {
 
     $('.deleteItem').on('click', function () {
 
+      $('.ui.modal')
+        .modal('show');
+
       var id = this.closest('td').id;
-
       var $this = $(this);
-      $.ajax({
 
-        url: '/api/item/' + id,
-        type: 'DELETE',
-        success: function (data) {
+      $('.conformDelete').on('click', function () {
 
-          if (200 == data.status) {
+        $.ajax({
 
-            $this.closest('tr').remove();
+          url: '/api/item/' + id,
+          type: 'DELETE',
+          success: function (data) {
+
+            if (200 == data.status) {
+
+              $this.closest('tr').remove();
+            }
           }
-        }
+        });
       });
+
     });
+
+
 
     $('.modifyItem').on('click', function () {
       var id = this.closest('td').id;
