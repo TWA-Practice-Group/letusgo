@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 extends ./viewModule/navBar.jade
 block title
   title 商品管理
@@ -29,3 +30,14 @@ block content
               td(id="#{item._id}")
                 div.ui.inverted.purple.button.modifyItem 修改
                 div.ui.inverted.blue.button.deleteItem 删除
+    div.ui.small.modal
+      i.close.icon
+      div.header 确认删除操作
+      div.description
+        div.ui.form.red.segment
+          div.ui.centered.grid
+            div.eight.wide.column
+              p.large 真的要删除此条商品信息吗？
+      div.actions
+        div.ui.blue.button.cancelDelete 取消
+        div.ui.red.button.conformDelete 确定
